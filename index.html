@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ar-Jay Agbayani - Information Technology Professional</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      // Configure Tailwind CSS to use class-based dark mode
+      tailwind.config = {
+        darkMode: 'class',
+      }
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        // Set theme on initial load to prevent flashing
+        if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            document.documentElement.classList.add('dark');
+        } else {
+            document.documentElement.classList.remove('dark');
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            scroll-behavior: smooth;
+        }
+        .section-title {
+            position: relative;
+            padding-bottom: 0.75rem;
+        }
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background-color: #22d3ee; /* cyan-400 */
+            border-radius: 2px;
+        }
+        .glass-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 0 25px rgba(34, 211, 238, 0.2);
+        }
+        .skill-badge {
+            transition: all 0.3s ease;
+        }
+        .skill-badge:hover {
+            transform: scale(1.05);
+        }
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 8px;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background-color: #cbd5e1; /* slate-300 */
+        }
+        .dark .timeline::before {
+            background-color: #334155; /* slate-700 */
+        }
+        .timeline-dot {
+            position: absolute;
+            left: 0px;
+            top: 4px;
+            height: 18px;
+            width: 18px;
+            background: #22d3ee;
+            border-radius: 50%;
+        }
+        /* Scroll Animation */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-slate-700 dark:bg-slate-900 dark:text-gray-300 transition-colors duration-500">
+
+    <!-- Header & Navigation --><header class="bg-white/80 dark:bg-slate-900/80 backdrop-blur-lg shadow-md sticky top-0 z-50 transition-colors duration-500">
+        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="#" class="text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-cyan-500 to-blue-600">Ar-Jay Agbayani</a>
+            <div class="hidden md:flex items-center space-x-8">
+                <a href="#about" class="text-slate-600 dark:text-gray-300 hover:text-cyan-500 dark:hover:text-cyan-400 transition-colors duration-300">About</a>
+                <a href="#projects" class="text-slate-600 dark:text-gray-300 hover:text-cyan-500 dark:hover:text-cyan-400 transition-colors duration-300">Projects</a>
+                <a href="#experience" class="text-slate-600 dark:text-gray-300 hover:text-cyan-500 dark:hover:text-cyan-400 transition-colors duration-300">Experience</a>
+                <a href="#skills" class="text-slate-600 dark:text-gray-300 hover:text-cyan-500 dark:hover:text-cyan-400 transition-colors duration-300">Skills</a>
+                <a href="#contact" class="text-slate-600 dark:text-gray-300 hover:text-cyan-500 dark:hover:text-cyan-400 transition-colors duration-300">Contact</a>
+                <button id="theme-toggle" class="text-slate-600 dark:text-gray-300 hover:text-cyan-500 dark:hover:text-cyan-400 transition-colors duration-300 text-xl">
+                    <i class="fas fa-moon"></i>
+                    <i class="fas fa-sun hidden"></i>
+                </button>
+            </div>
+            <button id="mobile-menu-button" class="md:hidden text-slate-600 dark:text-gray-300 hover:text-cyan-500 dark:hover:text-cyan-400">
+                <i class="fas fa-bars text-2xl"></i>
+            </button>
+        </nav>
+        <!-- Mobile Menu --><div id="mobile-menu" class="hidden md:hidden px-6 pb-4">
+            <a href="#about" class="block py-2 text-slate-600 dark:text-gray-300 hover:text-cyan-500 dark:hover:text-cyan-400">About</a>
+            <a href="#projects" class="block py-2 text-slate-600 dark:text-gray-300 hover:text-cyan-500 dark:hover:text-cyan-400">Projects</a>
+            <a href="#experience" class="block py-2 text-slate-600 dark:text-gray-300 hover:text-cyan-500 dark:hover:text-cyan-400">Experience</a>
+            <a href="#skills" class="block py-2 text-slate-600 dark:text-gray-300 hover:text-cyan-500 dark:hover:text-cyan-400">Skills</a>
+            <a href="#contact" class="block py-2 text-slate-600 dark:text-gray-300 hover:text-cyan-500 dark:hover:text-cyan-400">Contact</a>
+             <button id="theme-toggle-mobile" class="mt-2 text-slate-600 dark:text-gray-300 hover:text-cyan-500 dark:hover:text-cyan-400 transition-colors duration-300 text-xl">
+                <i class="fas fa-moon"></i>
+                <i class="fas fa-sun hidden"></i>
+                <span class="ml-2">Change Theme</span>
+            </button>
+        </div>
+    </header>
+
+    <main class="container mx-auto px-6 py-12">
+
+        <!-- Hero Section --><section id="hero" class="text-center py-24">
+            <h1 class="text-5xl md:text-7xl font-extrabold text-slate-900 dark:text-white mb-4">Ar-Jay Agbayani</h1>
+            <p class="text-2xl text-cyan-500 dark:text-cyan-400 font-semibold mb-8">Information Technology Professional</p>
+            <p class="max-w-3xl mx-auto text-lg text-slate-600 dark:text-gray-400 mb-10">
+                A dedicated and resourceful IT professional with hands-on experience in IT instruction, systems troubleshooting, and front-end web development.
+            </p>
+            <a href="#projects" class="bg-cyan-500 text-white dark:text-slate-900 font-bold py-3 px-8 rounded-full hover:bg-cyan-600 dark:hover:bg-cyan-400 transition duration-300 shadow-lg shadow-cyan-500/20">View My Work</a>
+        </section>
+
+        <!-- About Me Section --><section id="about" class="py-20 reveal">
+            <div class="glass-card rounded-lg p-8 md:p-12 bg-white/50 dark:bg-slate-800/50 backdrop-blur-lg border border-gray-200/80 dark:border-slate-700/50 transition-colors duration-500">
+                <h2 class="section-title text-3xl font-bold mb-12 text-center text-slate-900 dark:text-white">About Me</h2>
+                <div class="flex flex-col md:flex-row items-center gap-12">
+                    <div class="md:w-1/3 text-center">
+                        <img src="https://placehold.co/250x250/e2e8f0/0f172a?text=AA" alt="Ar-Jay Agbayani" class="rounded-full mx-auto shadow-xl border-4 border-white dark:border-slate-700">
+                    </div>
+                    <div class="md:w-2/3">
+                        <p class="text-lg text-slate-600 dark:text-gray-300 mb-4">
+                            Hello! I'm Ar-Jay, an Information Technology professional with a passion for leveraging technology to solve real-world problems. With a background in both education and hands-on IT support, I bring a unique blend of skills in curriculum delivery, systems management, and web development.
+                        </p>
+                        <p class="text-lg text-slate-600 dark:text-gray-300 mb-4">
+                            I thrive in dynamic environments where I can continuously learn and apply my skills to create efficient and user-friendly digital solutions. My goal is to contribute to a forward-thinking company where I can grow professionally and make a meaningful impact.
+                        </p>
+                        <p class="text-lg text-slate-600 dark:text-gray-300">
+                            Embracing modern development practices, I have been utilizing AI to assist in my projects, allowing me to focus on no-code programming principles and deliver solutions efficiently.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- Projects Section --><section id="projects" class="py-20 reveal">
+            <h2 class="section-title text-3xl font-bold mb-16 text-center text-slate-900 dark:text-white">My Projects</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <!-- Project 1 --><div class="glass-card rounded-lg overflow-hidden bg-white/50 dark:bg-slate-800/50 backdrop-blur-lg border border-gray-200/80 dark:border-slate-700/50 transition-colors duration-500">
+                    <img src="https://placehold.co/600x400/0f172a/e0f2fe?text=Event+Attendance+System" alt="Event Specific Attendance System" class="w-full h-48 object-cover opacity-90 group-hover:opacity-100 transition-opacity">
+                    <div class="p-6">
+                        <h3 class="text-2xl font-bold mb-2 text-slate-800 dark:text-white">Event Specific Attendance System</h3>
+                        <p class="text-slate-600 dark:text-gray-400 mb-4">
+                            A web-based system designed to streamline attendance tracking for specific events, simplifying management for organizers.
+                        </p>
+                        <div class="mb-4">
+                            <span class="inline-block bg-slate-200 dark:bg-slate-700 text-cyan-800 dark:text-cyan-300 text-sm font-semibold mr-2 px-2.5 py-0.5 rounded-full">HTML/CSS/JS</span>
+                        </div>
+                        <a href="https://sirjeii.github.io/esas/" target="_blank" class="font-semibold text-cyan-600 dark:text-cyan-400 hover:text-cyan-700 dark:hover:text-cyan-300">View Project <i class="fas fa-arrow-right ml-1"></i></a>
+                    </div>
+                </div>
+
+                <!-- Project 2 --><div class="glass-card rounded-lg overflow-hidden bg-white/50 dark:bg-slate-800/50 backdrop-blur-lg border border-gray-200/80 dark:border-slate-700/50 transition-colors duration-500">
+                    <img src="https://placehold.co/600x400/0f172a/e0f2fe?text=E-Sports+Registration" alt="STI CM E-sports Registration" class="w-full h-48 object-cover opacity-90 group-hover:opacity-100 transition-opacity">
+                    <div class="p-6">
+                        <h3 class="text-2xl font-bold mb-2 text-slate-800 dark:text-white">E-sports Event Registration</h3>
+                        <p class="text-slate-600 dark:text-gray-400 mb-4">
+                            A focused registration portal for an e-sports tournament, allowing participants to easily sign up for various competitive events.
+                        </p>
+                        <div class="mb-4">
+                           <span class="inline-block bg-slate-200 dark:bg-slate-700 text-cyan-800 dark:text-cyan-300 text-sm font-semibold mr-2 px-2.5 py-0.5 rounded-full">HTML/CSS/JS</span>
+                        </div>
+                        <a href="https://sirjeii.github.io/sticmesports/" target="_blank" class="font-semibold text-cyan-600 dark:text-cyan-400 hover:text-cyan-700 dark:hover:text-cyan-300">View Project <i class="fas fa-arrow-right ml-1"></i></a>
+                    </div>
+                </div>
+
+                <!-- Project 3 --><div class="glass-card rounded-lg overflow-hidden bg-white/50 dark:bg-slate-800/50 backdrop-blur-lg border border-gray-200/80 dark:border-slate-700/50 transition-colors duration-500">
+                    <img src="https://placehold.co/600x400/0f172a/e0f2fe?text=Art+Competition+Registration" alt="Tagisan ng Sining Registration" class="w-full h-48 object-cover opacity-90 group-hover:opacity-100 transition-opacity">
+                    <div class="p-6">
+                        <h3 class="text-2xl font-bold mb-2 text-slate-800 dark:text-white">"Tagisan ng Sining" Registration</h3>
+                        <p class="text-slate-600 dark:text-gray-400 mb-4">
+                            A dedicated registration system for an arts competition, facilitating a seamless sign-up process for participants.
+                        </p>
+                         <div class="mb-4">
+                           <span class="inline-block bg-slate-200 dark:bg-slate-700 text-cyan-800 dark:text-cyan-300 text-sm font-semibold mr-2 px-2.5 py-0.5 rounded-full">HTML/CSS/JS</span>
+                        </div>
+                        <a href="https://sirjeii.github.io/sticmtns/" target="_blank" class="font-semibold text-cyan-600 dark:text-cyan-400 hover:text-cyan-700 dark:hover:text-cyan-300">View Project <i class="fas fa-arrow-right ml-1"></i></a>
+                    </div>
+                </div>
+                
+                <!-- Project 4 --><div class="glass-card rounded-lg overflow-hidden bg-white/50 dark:bg-slate-800/50 backdrop-blur-lg border border-gray-200/80 dark:border-slate-700/50 transition-colors duration-500">
+                    <img src="https://placehold.co/600x400/0f172a/e0f2fe?text=Self+Photobooth" alt="Self Photobooth" class="w-full h-48 object-cover opacity-90 group-hover:opacity-100 transition-opacity">
+                    <div class="p-6">
+                        <h3 class="text-2xl font-bold mb-2 text-slate-800 dark:text-white">Self Photobooth for E-sports Event</h3>
+                        <p class="text-slate-600 dark:text-gray-400 mb-4">
+                            An interactive self-photobooth application allowing attendees to take memorable photos with event-themed frames.
+                        </p>
+                        <div class="mb-4">
+                            <span class="inline-block bg-slate-200 dark:bg-slate-700 text-cyan-800 dark:text-cyan-300 text-sm font-semibold mr-2 px-2.5 py-0.5 rounded-full">HTML/CSS/JS</span>
+                        </div>
+                        <a href="https://sirjeii.github.io/slfptb/" target="_blank" class="font-semibold text-cyan-600 dark:text-cyan-400 hover:text-cyan-700 dark:hover:text-cyan-300">View Project <i class="fas fa-arrow-right ml-1"></i></a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Experience & Education Section --><section id="experience" class="py-20 reveal">
+            <div class="glass-card rounded-lg p-8 md:p-12 bg-white/50 dark:bg-slate-800/50 backdrop-blur-lg border border-gray-200/80 dark:border-slate-700/50 transition-colors duration-500">
+            <h2 class="section-title text-3xl font-bold mb-16 text-center text-slate-900 dark:text-white">Career & Education</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-16">
+                <!-- Experience Column --><div>
+                    <h3 class="text-2xl font-semibold mb-8 flex items-center text-slate-800 dark:text-white"><i class="fas fa-briefcase mr-4 text-cyan-500 dark:text-cyan-400"></i>Experience</h3>
+                    <div class="relative timeline">
+                        <div class="pl-8 pb-8">
+                            <div class="timeline-dot border-4 border-gray-50 dark:border-slate-900"></div>
+                            <p class="font-semibold text-lg text-slate-800 dark:text-white">Web Project Developer (Freelance)</p>
+                            <p class="text-md text-slate-600 dark:text-gray-400">Remote | 2025 - Present</p>
+                            <ul class="list-disc list-inside mt-2 text-slate-600 dark:text-gray-400">
+                                <li>Developing web-based projects, including a comprehensive Daily Sales Inventory System.</li>
+                                <li>Focusing on creating functional and user-friendly web applications using no-code principles.</li>
+                            </ul>
+                        </div>
+                        <div class="pl-8 pb-8">
+                            <div class="timeline-dot border-4 border-gray-50 dark:border-slate-900"></div>
+                            <p class="font-semibold text-lg text-slate-800 dark:text-white">IT Instructor</p>
+                            <p class="text-md text-slate-600 dark:text-gray-400">STI College Marikina | 2023 - Present</p>
+                            <ul class="list-disc list-inside mt-2 text-slate-600 dark:text-gray-400">
+                                <li>Facilitate learning using an Outcomes-Based Education approach.</li>
+                                <li>Develop instructional materials and assess student performance.</li>
+                            </ul>
+                        </div>
+                         <div class="pl-8">
+                            <div class="timeline-dot border-4 border-gray-50 dark:border-slate-900"></div>
+                            <p class="font-semibold text-lg text-slate-800 dark:text-white">IT Intern</p>
+                            <p class="text-md text-slate-600 dark:text-gray-400">Xymbolic IT Solution Provider Corp. | 2023</p>
+                            <ul class="list-disc list-inside mt-2 text-slate-600 dark:text-gray-400">
+                                <li>Assisted in diagnosing and resolving hardware/software issues.</li>
+                                <li>Managed and maintained inventory of IT equipment.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <!-- Education Column --><div>
+                     <h3 class="text-2xl font-semibold mb-8 flex items-center text-slate-800 dark:text-white"><i class="fas fa-graduation-cap mr-4 text-cyan-500 dark:text-cyan-400"></i>Education</h3>
+                    <div class="relative timeline">
+                        <div class="pl-8 pb-8">
+                            <div class="timeline-dot border-4 border-gray-50 dark:border-slate-900"></div>
+                            <p class="font-semibold text-lg text-slate-800 dark:text-white">BS in Information Technology</p>
+                            <p class="text-md text-slate-600 dark:text-gray-400">Pamantasan ng Lungsod ng Pasig | 2019 - 2023</p>
+                        </div>
+                         <div class="pl-8">
+                            <div class="timeline-dot border-4 border-gray-50 dark:border-slate-900"></div>
+                            <p class="font-semibold text-lg text-slate-800 dark:text-white">Senior High School: ICT Strand</p>
+                            <p class="text-md text-slate-600 dark:text-gray-400">Sta. Lucia Senior High School | 2017 - 2019</p>
+                            <p class="text-sm text-slate-500 dark:text-gray-500 italic">Specialization in Computer Systems Servicing</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            </div>
+        </section>
+
+        <!-- Skills Section --><section id="skills" class="py-20 text-center reveal">
+            <h2 class="section-title text-3xl font-bold mb-16 text-slate-900 dark:text-white">Core Skills</h2>
+            <div class="max-w-4xl mx-auto">
+                <div class="mb-8">
+                    <h3 class="text-xl font-semibold mb-6 text-cyan-600 dark:text-cyan-400">Technical Skills</h3>
+                    <div class="flex flex-wrap justify-center gap-3">
+                        <span class="skill-badge bg-slate-200 text-slate-700 dark:bg-slate-800 dark:text-gray-300 py-2 px-4 rounded-full font-medium border border-slate-300 dark:border-slate-700 hover:bg-cyan-400 hover:text-slate-900 dark:hover:bg-cyan-400 dark:hover:text-slate-900">Front-End Web Development</span>
+                        <span class="skill-badge bg-slate-200 text-slate-700 dark:bg-slate-800 dark:text-gray-300 py-2 px-4 rounded-full font-medium border border-slate-300 dark:border-slate-700 hover:bg-cyan-400 hover:text-slate-900 dark:hover:bg-cyan-400 dark:hover:text-slate-900">Hardware & Software Troubleshooting</span>
+                        <span class="skill-badge bg-slate-200 text-slate-700 dark:bg-slate-800 dark:text-gray-300 py-2 px-4 rounded-full font-medium border border-slate-300 dark:border-slate-700 hover:bg-cyan-400 hover:text-slate-900 dark:hover:bg-cyan-400 dark:hover:text-slate-900">Computer Systems Servicing</span>
+                         <span class="skill-badge bg-slate-200 text-slate-700 dark:bg-slate-800 dark:text-gray-300 py-2 px-4 rounded-full font-medium border border-slate-300 dark:border-slate-700 hover:bg-cyan-400 hover:text-slate-900 dark:hover:bg-cyan-400 dark:hover:text-slate-900">No-Code Programming</span>
+                    </div>
+                </div>
+                 <div class="mb-8">
+                    <h3 class="text-xl font-semibold mb-6 text-cyan-600 dark:text-cyan-400">Creative Skills</h3>
+                    <div class="flex flex-wrap justify-center gap-3">
+                        <span class="skill-badge bg-slate-200 text-slate-700 dark:bg-slate-800 dark:text-gray-300 py-2 px-4 rounded-full font-medium border border-slate-300 dark:border-slate-700 hover:bg-cyan-400 hover:text-slate-900 dark:hover:bg-cyan-400 dark:hover:text-slate-900">Basic Graphic Design</span>
+                        <span class="skill-badge bg-slate-200 text-slate-700 dark:bg-slate-800 dark:text-gray-300 py-2 px-4 rounded-full font-medium border border-slate-300 dark:border-slate-700 hover:bg-cyan-400 hover:text-slate-900 dark:hover:bg-cyan-400 dark:hover:text-slate-900">Video Editing</span>
+                    </div>
+                </div>
+                 <div>
+                    <h3 class="text-xl font-semibold mb-6 text-cyan-600 dark:text-cyan-400">Software Proficiency</h3>
+                    <div class="flex flex-wrap justify-center gap-3">
+                        <span class="skill-badge bg-slate-200 text-slate-700 dark:bg-slate-800 dark:text-gray-300 py-2 px-4 rounded-full font-medium border border-slate-300 dark:border-slate-700 hover:bg-cyan-400 hover:text-slate-900 dark:hover:bg-cyan-400 dark:hover:text-slate-900">Microsoft Office Suite</span>
+                        <span class="skill-badge bg-slate-200 text-slate-700 dark:bg-slate-800 dark:text-gray-300 py-2 px-4 rounded-full font-medium border border-slate-300 dark:border-slate-700 hover:bg-cyan-400 hover:text-slate-900 dark:hover:bg-cyan-400 dark:hover:text-slate-900">Adobe Creative Suite</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section --><section id="contact" class="py-20 reveal">
+             <div class="glass-card rounded-lg p-8 md:p-12 bg-white/50 dark:bg-slate-800/50 backdrop-blur-lg border border-gray-200/80 dark:border-slate-700/50 transition-colors duration-500">
+             <h2 class="section-title text-3xl font-bold mb-8 text-center text-slate-900 dark:text-white">Get In Touch</h2>
+             <p class="text-center max-w-2xl mx-auto text-lg text-slate-600 dark:text-gray-400 mb-10">
+                I'm currently seeking new opportunities and would love to hear from you. Whether you have a question or just want to connect, feel free to reach out.
+             </p>
+            <div class="flex flex-wrap justify-center items-center gap-8 text-center">
+                <a href="mailto:arjayagbayani38@gmail.com" class="group flex items-center gap-3 text-lg hover:text-cyan-600 dark:hover:text-cyan-400 transition-colors">
+                    <i class="fas fa-envelope text-cyan-500 dark:text-cyan-400 text-2xl group-hover:scale-110 transition-transform"></i>
+                    arjayagbayani38@gmail.com
+                </a>
+                 <div class="flex items-center gap-3 text-lg">
+                    <i class="fas fa-phone text-cyan-500 dark:text-cyan-400 text-2xl"></i>
+                    <span>+63 992 561 1486</span>
+                </div>
+            </div>
+             </div>
+        </section>
+
+    </main>
+    
+    <!-- Footer --><footer class="bg-white dark:bg-slate-900 text-center py-6 border-t border-slate-200 dark:border-slate-800 transition-colors duration-500">
+        <p class="text-slate-500 dark:text-gray-500">&copy; 2024 Ar-Jay Agbayani. All Rights Reserved.</p>
+    </footer>
+
+    <script>
+        // Theme toggle logic
+        const setupThemeToggle = () => {
+            const themeToggleBtns = document.querySelectorAll('#theme-toggle, #theme-toggle-mobile');
+            
+            themeToggleBtns.forEach(btn => {
+                const moonIcons = btn.querySelectorAll('.fa-moon');
+                const sunIcons = btn.querySelectorAll('.fa-sun');
+
+                const updateIcons = (isDark) => {
+                    if (isDark) {
+                        moonIcons.forEach(icon => icon.classList.add('hidden'));
+                        sunIcons.forEach(icon => icon.classList.remove('hidden'));
+                    } else {
+                        moonIcons.forEach(icon => icon.classList.remove('hidden'));
+                        sunIcons.forEach(icon => icon.classList.add('hidden'));
+                    }
+                };
+
+                // Set initial icon state
+                updateIcons(document.documentElement.classList.contains('dark'));
+                
+                btn.addEventListener('click', () => {
+                    const isDark = document.documentElement.classList.toggle('dark');
+                    localStorage.setItem('theme', isDark ? 'dark' : 'light');
+                    updateIcons(isDark);
+                });
+            });
+        };
+        
+        // Mobile menu toggle
+        const setupMobileMenu = () => {
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+
+            mobileMenuButton.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+            });
+
+            const mobileMenuLinks = mobileMenu.querySelectorAll('a');
+            mobileMenuLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    mobileMenu.classList.add('hidden');
+                });
+            });
+        };
+        
+        // Scroll reveal animation
+        const setupScrollReveal = () => {
+            const reveals = document.querySelectorAll('.reveal');
+            const revealSections = () => {
+                for (let i = 0; i < reveals.length; i++) {
+                    const windowHeight = window.innerHeight;
+                    const elementTop = reveals[i].getBoundingClientRect().top;
+                    const elementVisible = 150;
+
+                    if (elementTop < windowHeight - elementVisible) {
+                        reveals[i].classList.add('active');
+                    }
+                }
+            };
+            window.addEventListener('scroll', revealSections);
+            revealSections(); // Initial check
+        };
+        
+        // Initialize all scripts on DOMContentLoaded
+        document.addEventListener('DOMContentLoaded', () => {
+            setupThemeToggle();
+            setupMobileMenu();
+            setupScrollReveal();
+        });
+    </script>
+</body>
+</html>
+
