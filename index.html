@@ -3,458 +3,471 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ar-Jay Agbayani (sirjeii) | IT Professional</title>
+    <title>Ar-Jay Agbayani | Portfolio</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://unpkg.com/lucide@latest"></script>
     <style>
-        /* GitHub System Font Stack */
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
+        /* Custom scrollbar and selection colors */
+        ::selection {
+            background-color: #14b8a6; /* teal-500 */
+            color: white;
+        }
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #020617; /* slate-950 */
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #1e293b; /* slate-800 */
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #334155; /* slate-700 */
         }
         
-        /* Custom GitHub-like styling tweaks */
-        .repo-card:hover {
-            box-shadow: 0 0 0 2px #0969da; /* Focus ring color */
+        /* Timeline styling */
+        .timeline-line::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 1.25rem;
+            width: 2px;
+            background: linear-gradient(to bottom, transparent, #1e293b, transparent);
         }
-        
-        .nav-item.active {
-            border-bottom: 2px solid #fd8c73; /* Orange underline for active tab */
-            font-weight: 600;
-            color: #1f2328;
-        }
-
-        .markdown-body h2 {
-            border-bottom: 1px solid #d0d7de;
-            padding-bottom: 0.3em;
+        @media (min-width: 768px) {
+            .timeline-line::before {
+                left: 50%;
+                transform: translateX(-50%);
+            }
         }
     </style>
 </head>
-<body class="bg-white text-[#1f2328] antialiased">
+<body class="bg-slate-950 text-slate-200 font-sans antialiased overflow-x-hidden">
 
-    <!-- Top Navigation Bar (GitHub style) -->
-    <header class="bg-[#f6f8fa] border-b border-[#d0d7de] py-3 px-4 md:px-8">
-        <div class="max-w-[1280px] mx-auto flex items-center justify-between">
-            <div class="flex items-center gap-4">
-                <!-- Replaced GitHub logo with a generic Terminal icon -->
-                <i data-lucide="terminal" class="w-8 h-8 text-[#1f2328]"></i>
-                <span class="font-semibold text-sm md:text-base hidden sm:inline-block">Ar-Jay Agbayani / Portfolio</span>
+    <!-- Navigation -->
+    <nav id="navbar" class="fixed w-full z-50 transition-all duration-300 py-6 border-b border-transparent">
+        <div class="container mx-auto px-6 flex justify-between items-center">
+            <div class="text-xl font-bold tracking-tighter text-white">
+                AA<span class="text-teal-400">.</span>
             </div>
-            <!-- Mobile Menu Toggle -->
-             <button id="mobile-menu-btn" class="md:hidden p-1 border border-[#d0d7de] rounded bg-white">
-                <i data-lucide="menu" class="w-5 h-5 text-[#57606a]"></i>
-            </button>
-            <div class="hidden md:flex gap-4 text-sm font-semibold text-[#1f2328]">
-                <a href="#contact" class="hover:text-[#0969da]">Contact</a>
+            <div class="hidden md:flex space-x-8 text-sm font-medium text-slate-400">
+                <a href="#about" class="hover:text-teal-400 transition-colors">About</a>
+                <a href="#skills" class="hover:text-teal-400 transition-colors">Skills</a>
+                <a href="#projects" class="hover:text-teal-400 transition-colors">Work</a>
+                <a href="#experience" class="hover:text-teal-400 transition-colors">Experience</a>
+            </div>
+            <a href="#contact" class="px-5 py-2 bg-white text-slate-950 font-semibold rounded-full hover:bg-teal-400 hover:text-white transition-all text-sm">
+                Let's Talk
+            </a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="relative pt-40 pb-20 lg:pt-56 lg:pb-32 overflow-hidden">
+        <!-- Abstract Background Elements -->
+        <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-teal-500/20 blur-[120px] rounded-full pointer-events-none"></div>
+        <div class="absolute top-40 right-0 w-[400px] h-[400px] bg-blue-600/10 blur-[100px] rounded-full pointer-events-none"></div>
+
+        <div class="container mx-auto px-6 relative z-10">
+            <div class="flex flex-col-reverse lg:flex-row items-center gap-12 lg:gap-8">
+                <!-- Text Content -->
+                <div class="flex-1 max-w-3xl text-center lg:text-left">
+                    <div class="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-slate-900 border border-slate-800 text-teal-400 text-sm font-medium mb-6">
+                        <span class="relative flex h-2 w-2">
+                            <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-teal-400 opacity-75"></span>
+                            <span class="relative inline-flex rounded-full h-2 w-2 bg-teal-500"></span>
+                        </span>
+                        <span>Available for Freelance Projects</span>
+                    </div>
+                    
+                    <h1 class="text-5xl lg:text-7xl font-bold tracking-tight text-white mb-6 leading-[1.1]">
+                        Hi, I'm Ar-Jay. <br />
+                        <span class="text-transparent bg-clip-text bg-gradient-to-r from-teal-400 to-blue-500">
+                            Full-Stack Developer & Funnel Builder
+                        </span>
+                    </h1>
+                    
+                    <p class="text-lg lg:text-xl text-slate-400 mb-10 max-w-2xl mx-auto lg:mx-0 leading-relaxed">
+                        Building high-conversion web systems and functional full-stack applications.
+                    </p>
+                    
+                    <div class="flex flex-wrap gap-4 justify-center lg:justify-start">
+                        <a href="#projects" class="px-8 py-4 bg-teal-500 text-slate-950 font-bold rounded-xl hover:bg-teal-400 transition-colors flex items-center group">
+                            View My Work
+                            <i data-lucide="chevron-right" class="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform"></i>
+                        </a>
+                        <a href="mailto:arjayagbayani38@gmail.com" class="px-8 py-4 bg-slate-900 text-white font-medium rounded-xl border border-slate-800 hover:border-slate-700 transition-colors flex items-center">
+                            <i data-lucide="mail" class="mr-2 w-5 h-5 text-slate-400"></i>
+                            Contact Me
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Profile Image Container -->
+                <div class="w-full lg:w-1/3 flex justify-center lg:justify-end">
+                    <div class="relative w-64 h-64 md:w-80 md:h-80 group">
+                        <!-- Decorative glow and ring behind image -->
+                        <div class="absolute inset-0 bg-teal-500/20 blur-2xl rounded-full group-hover:bg-teal-500/30 transition-colors duration-500"></div>
+                        <div class="absolute inset-0 rounded-full border-2 border-teal-500/30 translate-x-4 translate-y-4"></div>
+                        
+                        <!-- 
+                          HOW TO ADD YOUR PICTURE:
+                          1. Put your image file (e.g., 'profile.jpg') in the same folder as this index.html file on Github.
+                          2. Replace the 'src' link below with the name of your file.
+                          Example: src="profile.jpg"
+                        -->
+                        <img src="https://ui-avatars.com/api/?name=Ar-Jay+Agbayani&background=0f172a&color=2dd4bf&size=512" 
+                             alt="Ar-Jay Agbayani" 
+                             class="relative z-10 w-full h-full object-cover rounded-full border-4 border-slate-950 shadow-2xl grayscale hover:grayscale-0 transition-all duration-500" />
+                    </div>
+                </div>
             </div>
         </div>
     </header>
 
-    <div class="max-w-[1280px] mx-auto md:px-8 py-8 md:flex gap-8">
+    <!-- About & Skills Section -->
+    <section id="skills" class="py-20 bg-slate-950">
+        <div class="container mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                
+                <!-- About Card -->
+                <div class="md:col-span-2 bg-slate-900 border border-slate-800 p-8 rounded-3xl relative overflow-hidden group">
+                    <div class="absolute top-0 right-0 p-8 opacity-10 group-hover:opacity-20 transition-opacity">
+                        <i data-lucide="code" class="w-32 h-32 text-teal-400"></i>
+                    </div>
+                    <h2 class="text-2xl font-bold text-white mb-4">About Me</h2>
+                    <p class="text-slate-400 leading-relaxed max-w-lg relative z-10">
+                        A dedicated IT professional with hands-on experience in full-stack web development, high-converting sales funnels, and IT instruction. I bridge the gap between complex technical problem-solving and user-friendly, optimized web solutions.
+                    </p>
+                    <div class="mt-8 flex flex-wrap gap-4 relative z-10">
+                        <div class="flex items-center text-sm text-slate-300 bg-slate-950 px-4 py-2 rounded-lg border border-slate-800">
+                            <i data-lucide="map-pin" class="w-4 h-4 mr-2 text-teal-400"></i> Marikina, Philippines
+                        </div>
+                        <div class="flex items-center text-sm text-slate-300 bg-slate-950 px-4 py-2 rounded-lg border border-slate-800">
+                            <i data-lucide="graduation-cap" class="w-4 h-4 mr-2 text-teal-400"></i> BSIT Graduate
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Quick Contact Card -->
+                <div class="bg-gradient-to-br from-teal-500/10 to-blue-600/10 border border-teal-500/20 p-8 rounded-3xl flex flex-col justify-center">
+                    <h3 class="text-lg font-semibold text-white mb-6">Connect</h3>
+                    <div class="space-y-4">
+                        <a href="mailto:arjayagbayani38@gmail.com" class="flex items-center text-slate-300 hover:text-teal-400 transition-colors">
+                            <div class="w-10 h-10 rounded-full bg-slate-900 flex items-center justify-center mr-4 border border-slate-800">
+                                <i data-lucide="mail" class="w-4 h-4"></i>
+                            </div>
+                            <span class="text-sm truncate">arjayagbayani38@gmail.com</span>
+                        </a>
+                        <a href="tel:09760843180" class="flex items-center text-slate-300 hover:text-teal-400 transition-colors">
+                            <div class="w-10 h-10 rounded-full bg-slate-900 flex items-center justify-center mr-4 border border-slate-800">
+                                <i data-lucide="phone" class="w-4 h-4"></i>
+                            </div>
+                            <span class="text-sm">09760843180</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Skill Matrix Cards -->
+                <div class="bg-slate-900 border border-slate-800 p-8 rounded-3xl hover:border-slate-700 transition-colors">
+                    <div class="w-12 h-12 rounded-xl bg-slate-950 border border-slate-800 flex items-center justify-center text-teal-400 mb-6">
+                        <i data-lucide="code" class="w-6 h-6"></i>
+                    </div>
+                    <h3 class="text-lg font-semibold text-white mb-2">Web Development</h3>
+                    <p class="text-sm text-slate-400 leading-relaxed">Front-End & Backend, System Architecting, Prototyping</p>
+                </div>
+
+                <div class="bg-slate-900 border border-slate-800 p-8 rounded-3xl hover:border-slate-700 transition-colors">
+                    <div class="w-12 h-12 rounded-xl bg-slate-950 border border-slate-800 flex items-center justify-center text-teal-400 mb-6">
+                        <i data-lucide="filter" class="w-6 h-6"></i>
+                    </div>
+                    <h3 class="text-lg font-semibold text-white mb-2">Conversion Funnels</h3>
+                    <p class="text-sm text-slate-400 leading-relaxed">Funnelish, Traffic to Checkout Flows, A/B Optimization</p>
+                </div>
+
+                <div class="bg-slate-900 border border-slate-800 p-8 rounded-3xl hover:border-slate-700 transition-colors">
+                    <div class="w-12 h-12 rounded-xl bg-slate-950 border border-slate-800 flex items-center justify-center text-teal-400 mb-6">
+                        <i data-lucide="monitor" class="w-6 h-6"></i>
+                    </div>
+                    <h3 class="text-lg font-semibold text-white mb-2">IT & Hardware</h3>
+                    <p class="text-sm text-slate-400 leading-relaxed">System Servicing, Outcomes-Based Education (OBE)</p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Complete Projects Section -->
+    <section id="projects" class="py-24 bg-slate-950">
+        <div class="container mx-auto px-6">
+            <div class="mb-16">
+                <h2 class="text-4xl font-bold text-white mb-4">Complete Web Portfolio</h2>
+                <p class="text-slate-400 max-w-xl text-lg">A comprehensive list of enterprise systems, event portals, and interactive applications I've developed.</p>
+            </div>
+
+            <!-- Client & Enterprise Systems -->
+            <h3 class="text-xl font-bold text-teal-400 mb-6 border-b border-slate-800 pb-2">Client: Successo Comida Food Corporation</h3>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
+                <div class="bg-slate-900 border border-slate-800 rounded-2xl p-6 hover:border-slate-700 transition-colors">
+                    <h4 class="text-lg font-bold text-white mb-2">Sales & Inventory System</h4>
+                    <p class="text-sm text-slate-400 mb-4">Real-time daily sales tracking and inventory management.</p>
+                    <span class="text-xs font-medium text-slate-300 bg-slate-950 border border-slate-800 px-3 py-1 rounded-lg">Enterprise</span>
+                </div>
+                <div class="bg-slate-900 border border-slate-800 rounded-2xl p-6 hover:border-slate-700 transition-colors">
+                    <h4 class="text-lg font-bold text-white mb-2">Asset Management</h4>
+                    <p class="text-sm text-slate-400 mb-4">System to track, manage, and report warehouse equipment.</p>
+                    <span class="text-xs font-medium text-slate-300 bg-slate-950 border border-slate-800 px-3 py-1 rounded-lg">Enterprise</span>
+                </div>
+                <div class="bg-slate-900 border border-slate-800 rounded-2xl p-6 hover:border-slate-700 transition-colors">
+                    <h4 class="text-lg font-bold text-white mb-2">Procurement System</h4>
+                    <p class="text-sm text-slate-400 mb-4">Digital platform streamlining purchasing and supplier orders.</p>
+                    <span class="text-xs font-medium text-slate-300 bg-slate-950 border border-slate-800 px-3 py-1 rounded-lg">Enterprise</span>
+                </div>
+                <div class="bg-slate-900 border border-slate-800 rounded-2xl p-6 hover:border-slate-700 transition-colors">
+                    <h4 class="text-lg font-bold text-white mb-2">Payroll System</h4>
+                    <p class="text-sm text-slate-400 mb-4">Automated system for employee compensation and financial records.</p>
+                    <span class="text-xs font-medium text-slate-300 bg-slate-950 border border-slate-800 px-3 py-1 rounded-lg">Enterprise</span>
+                </div>
+            </div>
+
+            <!-- Hosted Applications & Portals -->
+            <h3 class="text-xl font-bold text-teal-400 mb-6 border-b border-slate-800 pb-2">Web Utilities, Portals & Prototypes</h3>
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                
+                <!-- Project 1 -->
+                <div class="group relative bg-slate-900 border border-slate-800 rounded-3xl p-8 hover:bg-slate-800/50 transition-all duration-300 flex flex-col justify-between overflow-hidden">
+                    <div class="flex justify-between items-start mb-6">
+                        <span class="text-xs font-semibold tracking-wider uppercase text-teal-400 bg-teal-400/10 px-3 py-1 rounded-full">Web Utility</span>
+                        <a href="https://sirjeii.github.io/proctor/" target="_blank" rel="noreferrer" class="text-slate-500 hover:text-teal-400 transition-colors">
+                            <i data-lucide="external-link" class="w-5 h-5"></i>
+                        </a>
+                    </div>
+                    <div>
+                        <h4 class="text-2xl font-bold text-white mb-3">Exam Proctor Manager</h4>
+                        <p class="text-slate-400 leading-relaxed mb-6">Client: STI College Marikina<br/>Created a web utility to assist exam administrators in managing proctoring schedules and monitoring sessions.</p>
+                    </div>
+                    <div class="flex gap-2">
+                        <span class="text-xs font-medium text-slate-300 bg-slate-950 border border-slate-800 px-3 py-1 rounded-lg">Management Tool</span>
+                    </div>
+                </div>
+
+                <!-- Project 2 -->
+                <div class="group relative bg-slate-900 border border-slate-800 rounded-3xl p-8 hover:bg-slate-800/50 transition-all duration-300 flex flex-col justify-between overflow-hidden">
+                    <div class="flex justify-between items-start mb-6">
+                        <span class="text-xs font-semibold tracking-wider uppercase text-teal-400 bg-teal-400/10 px-3 py-1 rounded-full">Interactive App</span>
+                        <a href="https://sirjeii.github.io/slfptb/" target="_blank" rel="noreferrer" class="text-slate-500 hover:text-teal-400 transition-colors">
+                            <i data-lucide="external-link" class="w-5 h-5"></i>
+                        </a>
+                    </div>
+                    <div>
+                        <h4 class="text-2xl font-bold text-white mb-3">Selfphotobooth App</h4>
+                        <p class="text-slate-400 leading-relaxed mb-6">Client: STI College Marikina<br/>Developed a browser-based photobooth application allowing users to capture photos with custom frames and interactive features.</p>
+                    </div>
+                    <div class="flex gap-2">
+                        <span class="text-xs font-medium text-slate-300 bg-slate-950 border border-slate-800 px-3 py-1 rounded-lg">Camera API</span>
+                        <span class="text-xs font-medium text-slate-300 bg-slate-950 border border-slate-800 px-3 py-1 rounded-lg">Events</span>
+                    </div>
+                </div>
+
+                <!-- Project 3 -->
+                <div class="group relative bg-slate-900 border border-slate-800 rounded-3xl p-8 hover:bg-slate-800/50 transition-all duration-300 flex flex-col justify-between overflow-hidden">
+                    <div class="flex justify-between items-start mb-6">
+                        <span class="text-xs font-semibold tracking-wider uppercase text-teal-400 bg-teal-400/10 px-3 py-1 rounded-full">Utility</span>
+                        <a href="https://sirjeii.github.io/esas/" target="_blank" rel="noreferrer" class="text-slate-500 hover:text-teal-400 transition-colors">
+                            <i data-lucide="external-link" class="w-5 h-5"></i>
+                        </a>
+                    </div>
+                    <div>
+                        <h4 class="text-2xl font-bold text-white mb-3">Event Attendance System</h4>
+                        <p class="text-slate-400 leading-relaxed mb-6">Client: STI College Marikina<br/>Built a specialized digital system for efficiently tracking attendee participation across various campus events.</p>
+                    </div>
+                    <div class="flex gap-2">
+                        <span class="text-xs font-medium text-slate-300 bg-slate-950 border border-slate-800 px-3 py-1 rounded-lg">Tracking</span>
+                    </div>
+                </div>
+
+                <!-- Project 4 -->
+                <div class="group relative bg-slate-900 border border-slate-800 rounded-3xl p-8 hover:bg-slate-800/50 transition-all duration-300 flex flex-col justify-between overflow-hidden">
+                    <div class="flex justify-between items-start mb-6">
+                        <span class="text-xs font-semibold tracking-wider uppercase text-teal-400 bg-teal-400/10 px-3 py-1 rounded-full">Information Site</span>
+                        <a href="https://sirjeii.github.io/bnwp/#competitions" target="_blank" rel="noreferrer" class="text-slate-500 hover:text-teal-400 transition-colors">
+                            <i data-lucide="external-link" class="w-5 h-5"></i>
+                        </a>
+                    </div>
+                    <div>
+                        <h4 class="text-2xl font-bold text-white mb-3">Buwan ng Wika Mechanics</h4>
+                        <p class="text-slate-400 leading-relaxed mb-6">Client: STI College Marikina<br/>Published an interactive informational site detailing the mechanics and criteria for the college's competitions.</p>
+                    </div>
+                    <div class="flex gap-2">
+                        <span class="text-xs font-medium text-slate-300 bg-slate-950 border border-slate-800 px-3 py-1 rounded-lg">Web Design</span>
+                    </div>
+                </div>
+
+                <!-- Project 5 -->
+                <div class="group relative bg-slate-900 border border-slate-800 rounded-3xl p-8 hover:bg-slate-800/50 transition-all duration-300 flex flex-col justify-between overflow-hidden">
+                    <div class="flex justify-between items-start mb-6">
+                        <span class="text-xs font-semibold tracking-wider uppercase text-teal-400 bg-teal-400/10 px-3 py-1 rounded-full">Registration Portal</span>
+                        <a href="https://sirjeii.github.io/sticmtns/" target="_blank" rel="noreferrer" class="text-slate-500 hover:text-teal-400 transition-colors">
+                            <i data-lucide="external-link" class="w-5 h-5"></i>
+                        </a>
+                    </div>
+                    <div>
+                        <h4 class="text-2xl font-bold text-white mb-3">Tagisan ng Talino Registration</h4>
+                        <p class="text-slate-400 leading-relaxed mb-6">Client: STI College Marikina<br/>Developed the official online registration portal for the annual academic quiz bee, streamlining participant data collection.</p>
+                    </div>
+                    <div class="flex gap-2">
+                        <span class="text-xs font-medium text-slate-300 bg-slate-950 border border-slate-800 px-3 py-1 rounded-lg">Data Collection</span>
+                    </div>
+                </div>
+
+                <!-- Project 6 -->
+                <div class="group relative bg-slate-900 border border-slate-800 rounded-3xl p-8 hover:bg-slate-800/50 transition-all duration-300 flex flex-col justify-between overflow-hidden">
+                    <div class="flex justify-between items-start mb-6">
+                        <span class="text-xs font-semibold tracking-wider uppercase text-teal-400 bg-teal-400/10 px-3 py-1 rounded-full">Registration Portal</span>
+                        <a href="https://sirjeii.github.io/sticmesports/" target="_blank" rel="noreferrer" class="text-slate-500 hover:text-teal-400 transition-colors">
+                            <i data-lucide="external-link" class="w-5 h-5"></i>
+                        </a>
+                    </div>
+                    <div>
+                        <h4 class="text-2xl font-bold text-white mb-3">Esports Tournament 2025</h4>
+                        <p class="text-slate-400 leading-relaxed mb-6">Client: STI College Marikina<br/>Created the registration platform for the 2025 Esports Tournament to facilitate team sign-ups and management.</p>
+                    </div>
+                    <div class="flex gap-2">
+                        <span class="text-xs font-medium text-slate-300 bg-slate-950 border border-slate-800 px-3 py-1 rounded-lg">Portals</span>
+                    </div>
+                </div>
+
+                <!-- Project 7 -->
+                <div class="group relative bg-slate-900 border border-slate-800 rounded-3xl p-8 hover:bg-slate-800/50 transition-all duration-300 flex flex-col justify-between overflow-hidden lg:col-span-2">
+                    <div class="flex justify-between items-start mb-6">
+                        <span class="text-xs font-semibold tracking-wider uppercase text-teal-400 bg-teal-400/10 px-3 py-1 rounded-full">Prototype</span>
+                        <a href="https://sabaybyaheph.netlify.app" target="_blank" rel="noreferrer" class="text-slate-500 hover:text-teal-400 transition-colors">
+                            <i data-lucide="external-link" class="w-5 h-5"></i>
+                        </a>
+                    </div>
+                    <div>
+                        <h4 class="text-2xl font-bold text-white mb-3">Prototype of SabayByahePH</h4>
+                        <p class="text-slate-400 leading-relaxed mb-6">Created an interactive prototype for SabayByahePH, a micro-carpooling application, focusing heavily on user interface design and user experience mapping.</p>
+                    </div>
+                    <div class="flex gap-2">
+                        <span class="text-xs font-medium text-slate-300 bg-slate-950 border border-slate-800 px-3 py-1 rounded-lg">UI/UX Design</span>
+                        <span class="text-xs font-medium text-slate-300 bg-slate-950 border border-slate-800 px-3 py-1 rounded-lg">Figma/Prototyping</span>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Timeline -->
+    <section id="experience" class="py-24 bg-slate-900/50 border-t border-slate-800/50">
+        <div class="container mx-auto px-6 max-w-4xl">
+            <div class="flex items-center mb-16">
+                <i data-lucide="briefcase" class="w-8 h-8 text-teal-400 mr-4"></i>
+                <h2 class="text-4xl font-bold text-white">Experience</h2>
+            </div>
+
+            <div class="space-y-12 relative timeline-line">
+                
+                <!-- Experience Item 1 -->
+                <div class="relative flex items-center justify-between md:justify-normal md:flex-row-reverse group">
+                    <div class="flex items-center justify-center w-10 h-10 rounded-full border-4 border-slate-950 bg-slate-800 group-hover:bg-teal-400 group-hover:border-teal-500/30 transition-colors shadow shrink-0 md:order-1 md:-translate-x-1/2 relative z-10">
+                        <div class="w-2 h-2 bg-slate-400 group-hover:bg-slate-950 rounded-full"></div>
+                    </div>
+                    <div class="w-[calc(100%-4rem)] md:w-[calc(50%-2.5rem)] p-6 rounded-3xl bg-slate-900 border border-slate-800 hover:border-slate-700 transition-colors shadow-lg">
+                        <div class="flex flex-col mb-2">
+                            <span class="text-teal-400 font-bold text-sm tracking-wide mb-1">2025 - Present</span>
+                            <h3 class="text-xl font-bold text-white">Web Project Developer</h3>
+                        </div>
+                        <div class="text-slate-400 text-sm font-medium mb-4">Freelance, Remote</div>
+                        <p class="text-slate-400 leading-relaxed text-sm">Develops custom web-based projects for clients, including a comprehensive Daily Sales and Inventory System. Focuses on creating functional and user-friendly web applications.</p>
+                    </div>
+                </div>
+
+                <!-- Experience Item 2 -->
+                <div class="relative flex items-center justify-between md:justify-normal group">
+                    <div class="flex items-center justify-center w-10 h-10 rounded-full border-4 border-slate-950 bg-slate-800 group-hover:bg-teal-400 group-hover:border-teal-500/30 transition-colors shadow shrink-0 md:order-1 md:translate-x-1/2 relative z-10">
+                        <div class="w-2 h-2 bg-slate-400 group-hover:bg-slate-950 rounded-full"></div>
+                    </div>
+                    <div class="w-[calc(100%-4rem)] md:w-[calc(50%-2.5rem)] p-6 rounded-3xl bg-slate-900 border border-slate-800 hover:border-slate-700 transition-colors shadow-lg">
+                        <div class="flex flex-col mb-2">
+                            <span class="text-teal-400 font-bold text-sm tracking-wide mb-1">2024 - Present</span>
+                            <h3 class="text-xl font-bold text-white">Funnel Builder</h3>
+                        </div>
+                        <div class="text-slate-400 text-sm font-medium mb-4">Freelance, Remote</div>
+                        <p class="text-slate-400 leading-relaxed text-sm">Responsible for building and optimizing high converting sales funnels. Designed end-to-end funnel flows from traffic acquisition to checkout, improving conversion rates.</p>
+                    </div>
+                </div>
+
+                <!-- Experience Item 3 -->
+                <div class="relative flex items-center justify-between md:justify-normal md:flex-row-reverse group">
+                    <div class="flex items-center justify-center w-10 h-10 rounded-full border-4 border-slate-950 bg-slate-800 group-hover:bg-teal-400 group-hover:border-teal-500/30 transition-colors shadow shrink-0 md:order-1 md:-translate-x-1/2 relative z-10">
+                        <div class="w-2 h-2 bg-slate-400 group-hover:bg-slate-950 rounded-full"></div>
+                    </div>
+                    <div class="w-[calc(100%-4rem)] md:w-[calc(50%-2.5rem)] p-6 rounded-3xl bg-slate-900 border border-slate-800 hover:border-slate-700 transition-colors shadow-lg">
+                        <div class="flex flex-col mb-2">
+                            <span class="text-teal-400 font-bold text-sm tracking-wide mb-1">2023 - Present</span>
+                            <h3 class="text-xl font-bold text-white">IT Instructor</h3>
+                        </div>
+                        <div class="text-slate-400 text-sm font-medium mb-4">STI College Marikina</div>
+                        <p class="text-slate-400 leading-relaxed text-sm">Facilitates student learning on various IT subjects using an Outcomes-Based Education (OBE) approach. Develops materials and assesses student performance.</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact CTA -->
+    <section id="contact" class="py-24 bg-slate-950 relative overflow-hidden">
+        <div class="absolute bottom-0 left-1/2 -translate-x-1/2 w-[600px] h-[300px] bg-teal-500/10 blur-[100px] rounded-full pointer-events-none"></div>
         
-        <!-- Left Sidebar: Profile Info -->
-        <aside class="w-full md:w-[296px] px-4 md:px-0 mb-8 md:mb-0 shrink-0">
-            <!-- Avatar -->
-            <div class="relative w-[260px] h-[260px] md:w-[296px] md:h-[296px] mb-4 border border-[#d0d7de] rounded-full overflow-hidden mx-auto md:mx-0 bg-[#f6f8fa]">
-                <!-- 
-                     TODO: PLACE YOUR IMAGE HERE
-                     Replace 'images/profile.jpg' with the actual path to your image file.
-                     Example: src="me.png" or src="https://example.com/my-photo.jpg"
-                -->
-                <img src="images/image.jpg" alt="Ar-Jay Agbayani" class="w-full h-full object-cover">
-                
-                <!-- Status Badge -->
-                <div class="absolute bottom-10 right-8 bg-white border border-[#d0d7de] rounded-full p-2 shadow-sm hidden md:block group cursor-pointer">
-                    <div class="flex items-center gap-2 text-xs text-[#57606a] group-hover:text-[#0969da]">
-                         <span class="w-3 h-3 bg-green-500 rounded-full border border-green-600"></span>
-                         <span class="opacity-0 group-hover:opacity-100 transition-opacity absolute right-10 whitespace-nowrap bg-white px-2 py-1 rounded border border-[#d0d7de]">Available for hire</span>
-                    </div>
-                </div>
-            </div>
+        <div class="container mx-auto px-6 max-w-4xl text-center relative z-10">
+            <h2 class="text-4xl md:text-5xl font-bold text-white mb-6">Ready to build something great?</h2>
+            <p class="text-xl text-slate-400 mb-10">
+                Whether you need a full-stack system, a high-converting sales funnel, or a functional prototype, I'm ready to help.
+            </p>
+            <a href="mailto:arjayagbayani38@gmail.com" class="inline-flex items-center px-8 py-4 bg-white text-slate-950 font-bold rounded-xl hover:bg-teal-400 hover:text-white transition-all text-lg">
+                Get In Touch
+                <i data-lucide="mail" class="ml-3 w-5 h-5"></i>
+            </a>
+        </div>
+    </section>
 
-            <!-- Names -->
-            <div class="mb-4 text-center md:text-left">
-                <h1 class="text-[26px] leading-[1.25] font-bold text-[#1f2328]">Ar-Jay Agbayani</h1>
-                <p class="text-[20px] font-light text-[#57606a]">IT Professional</p>
-            </div>
-
-            <!-- Bio -->
-            <div class="mb-4 text-[#1f2328] text-base">
-                Dedicated IT professional specializing in instruction, troubleshooting, and full-stack development. Based in PH.
-            </div>
-
-            <!-- Actions -->
-            <div class="mb-6">
-                <a href="mailto:arjayagbayani38@gmail.com" class="block w-full text-center bg-[#f6f8fa] border border-[#d0d7de] rounded-md py-[5px] px-[16px] text-sm font-medium text-[#24292f] hover:bg-[#f3f4f6] transition-colors mb-2">
-                    Contact Me
+    <!-- Footer -->
+    <footer class="bg-slate-950 border-t border-slate-800 py-10">
+        <div class="container mx-auto px-6 flex flex-col md:flex-row justify-between items-center text-sm text-slate-500">
+            <p>&copy; <span id="year"></span> Ar-Jay Agbayani. All rights reserved.</p>
+            <div class="flex space-x-6 mt-4 md:mt-0">
+                <a href="#navbar" class="hover:text-teal-400 transition-colors cursor-pointer">
+                    Back to Top
                 </a>
-                <a href="images/Ar-Jay Agbayani.pdf" class="block w-full text-center bg-white border border-[#d0d7de] rounded-md py-[5px] px-[16px] text-sm font-medium text-[#0969da] hover:bg-[#f3f4f6] hover:underline transition-colors">
-                    Download CV
-                </a>
-            </div>
-
-            <!-- Metadata -->
-            <div class="space-y-2 text-sm text-[#24292f] mb-8">
-                <div class="flex items-center gap-2">
-                    <i data-lucide="map-pin" class="w-4 h-4 text-[#57606a]"></i>
-                    Marikina City, Philippines
-                </div>
-                <div class="flex items-center gap-2">
-                    <i data-lucide="mail" class="w-4 h-4 text-[#57606a]"></i>
-                    <a href="mailto:arjayagbayani38@gmail.com" class="hover:text-[#0969da] hover:underline">arjayagbayani38@gmail.com</a>
-                </div>
-                <div class="flex items-center gap-2">
-                    <i data-lucide="phone" class="w-4 h-4 text-[#57606a]"></i>
-                    <span>0976-084-3180</span>
-                </div>
-                 <div class="flex items-center gap-2">
-                    <i data-lucide="github" class="w-4 h-4 text-[#57606a]"></i>
-                    <a href="https://github.com/sirjeii" target="_blank" class="hover:text-[#0969da] hover:underline">github.com/sirjeii</a>
-                </div>
-            </div>
-
-            <!-- Skills Badges (Simulating Achievement Badges) -->
-            <div class="border-t border-[#d0d7de] pt-4">
-                <h3 class="font-semibold text-sm mb-2 text-[#24292f]">Organizations & Skills</h3>
-                <div class="flex flex-wrap gap-1">
-                    <span class="inline-flex items-center px-2 py-1 bg-[#ddf4ff] text-[#0969da] text-xs font-medium rounded-md border border-[#54aeff66]">HTML</span>
-                    <span class="inline-flex items-center px-2 py-1 bg-[#ddf4ff] text-[#0969da] text-xs font-medium rounded-md border border-[#54aeff66]">CSS</span>
-                    <span class="inline-flex items-center px-2 py-1 bg-[#fff8c5] text-[#9a6700] text-xs font-medium rounded-md border border-[#d4a72c66]">JS</span>
-                    <span class="inline-flex items-center px-2 py-1 bg-[#fbefff] text-[#8250df] text-xs font-medium rounded-md border border-[#c096ff66]">Funnelish</span>
-                    <span class="inline-flex items-center px-2 py-1 bg-[#eff1f3] text-[#24292f] text-xs font-medium rounded-md border border-[#d0d7de]">Git</span>
-                </div>
-            </div>
-        </aside>
-
-        <!-- Main Content Area -->
-        <main class="w-full min-w-0">
-            
-            <!-- Sticky Nav for Sections -->
-            <div class="sticky top-0 bg-white z-10 border-b border-[#d0d7de] mb-6 overflow-x-auto hide-scrollbar">
-                <nav class="flex gap-4 px-4 md:px-0" id="main-nav">
-                    <a href="#overview" class="nav-item active flex items-center gap-2 px-2 py-3 text-sm text-[#1f2328] hover:bg-[#f6f8fa] rounded-t-md whitespace-nowrap">
-                        <i data-lucide="book-open" class="w-4 h-4 text-[#57606a]"></i>
-                        Overview
-                    </a>
-                    <a href="#projects" class="nav-item flex items-center gap-2 px-2 py-3 text-sm text-[#1f2328] hover:bg-[#f6f8fa] rounded-t-md whitespace-nowrap">
-                        <i data-lucide="package" class="w-4 h-4 text-[#57606a]"></i>
-                        Projects
-                        <span class="bg-[#eff1f3] text-[#1f2328] text-xs font-medium px-1.5 py-0.5 rounded-full">7</span>
-                    </a>
-                    <a href="#experience" class="nav-item flex items-center gap-2 px-2 py-3 text-sm text-[#1f2328] hover:bg-[#f6f8fa] rounded-t-md whitespace-nowrap">
-                        <i data-lucide="briefcase" class="w-4 h-4 text-[#57606a]"></i>
-                        Experience
-                    </a>
-                </nav>
-            </div>
-
-            <!-- Overview Section (README style) -->
-            <section id="overview" class="px-4 md:px-0 mb-8">
-                <div class="border border-[#d0d7de] rounded-md mb-6">
-                    <div class="bg-[#f6f8fa] px-4 py-2 border-b border-[#d0d7de] flex items-center justify-between rounded-t-md">
-                        <span class="text-xs font-mono text-[#57606a]">Ar-Jay / README.md</span>
-                        <i data-lucide="edit-3" class="w-3 h-3 text-[#57606a]"></i>
-                    </div>
-                    <div class="p-6 markdown-body">
-                        <h2 class="text-xl font-semibold mb-4 pb-2 border-b border-[#d0d7de]">Hi there, I'm Ar-Jay! 👋</h2>
-                        <p class="mb-4 text-sm leading-relaxed text-[#1f2328]">
-                            I'm an Information Technology professional based in Marikina City. I bridge the gap between technical troubleshooting and creative web development. I love building tools that solve real problems, whether it's an inventory system for a business or an interactive photobooth for an event.
-                        </p>
-                        
-                        <h3 class="text-lg font-semibold mb-3 mt-6">🎓 Education</h3>
-                        <ul class="list-disc list-inside text-sm space-y-1 text-[#1f2328] ml-2">
-                            <li><span class="font-semibold">BS Information Technology</span> - Pamantasan ng Lungsod ng Pasig (2019-2023)</li>
-                            <li><span class="font-semibold">ICT Strand</span> - Sta. Lucia Senior High School (2017-2019)</li>
-                        </ul>
-
-                         <h3 class="text-lg font-semibold mb-3 mt-6">⚡ Toolkit</h3>
-                         <div class="flex gap-4 text-sm">
-                             <div>
-                                 <strong class="block mb-1 text-[#57606a]">Development</strong>
-                                 HTML, CSS, JavaScript, Funnelish, Git
-                             </div>
-                             <div>
-                                 <strong class="block mb-1 text-[#57606a]">Design</strong>
-                                 Adobe Photoshop, Filmora, Canva
-                             </div>
-                             <div>
-                                 <strong class="block mb-1 text-[#57606a]">Systems</strong>
-                                 Hardware Troubleshooting, Maintenance
-                             </div>
-                         </div>
-                    </div>
-                </div>
-
-                <!-- Pinned Repos (Featured Projects) -->
-                <div class="mb-4 flex items-center justify-between">
-                    <h2 class="text-base font-semibold">Pinned</h2>
-                    <span class="text-xs text-[#57606a]">Customize your pins</span>
-                </div>
-                
-                <div class="grid md:grid-cols-2 gap-4">
-                    
-                    <!-- Pin 1: Inventory System (NEW/MISSING) -->
-                    <div class="border border-[#d0d7de] rounded-md p-4 flex flex-col justify-between repo-card transition-all">
-                        <div>
-                            <div class="flex items-center gap-2 mb-2">
-                                <i data-lucide="lock" class="w-4 h-4 text-[#57606a]"></i>
-                                <span class="font-semibold text-[#1f2328]">Inventory & Sales System</span>
-                                <span class="border border-[#d0d7de] rounded-full px-2 text-xs text-[#57606a] font-medium ml-auto">Private</span>
-                            </div>
-                            <p class="text-xs text-[#57606a] mb-4 h-8 line-clamp-2">Comprehensive system to track daily sales and manage inventory levels in real-time for Successo Comida Food Corp.</p>
-                        </div>
-                        <div class="flex items-center gap-4 text-xs text-[#57606a]">
-                            <div class="flex items-center gap-1">
-                                <span class="w-3 h-3 rounded-full bg-[#f1e05a]"></span>
-                                <span>JavaScript</span>
-                            </div>
-                            <div class="flex items-center gap-1">
-                                <span>Client Project</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Pin 2: Proctor Manager -->
-                    <div class="border border-[#d0d7de] rounded-md p-4 flex flex-col justify-between repo-card transition-all">
-                        <div>
-                            <div class="flex items-center gap-2 mb-2">
-                                <i data-lucide="book" class="w-4 h-4 text-[#57606a]"></i>
-                                <a href="https://sirjeii.github.io/proctor/" target="_blank" class="font-semibold text-[#0969da] hover:underline">Proctor Manager</a>
-                                <span class="border border-[#d0d7de] rounded-full px-2 text-xs text-[#57606a] font-medium ml-auto">Public</span>
-                            </div>
-                            <p class="text-xs text-[#57606a] mb-4 h-8 line-clamp-2">A web utility to assist exam administrators in managing proctoring schedules and monitoring sessions.</p>
-                        </div>
-                        <div class="flex items-center gap-4 text-xs text-[#57606a]">
-                            <div class="flex items-center gap-1">
-                                <span class="w-3 h-3 rounded-full bg-[#f1e05a]"></span>
-                                <span>JavaScript</span>
-                            </div>
-                            <div class="flex items-center gap-1 hover:text-[#0969da] cursor-pointer">
-                                <i data-lucide="star" class="w-3 h-3"></i>
-                                <span>12</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Pin 3: Attendance -->
-                    <div class="border border-[#d0d7de] rounded-md p-4 flex flex-col justify-between repo-card transition-all">
-                         <div>
-                            <div class="flex items-center gap-2 mb-2">
-                                <i data-lucide="book" class="w-4 h-4 text-[#57606a]"></i>
-                                <a href="https://sirjeii.github.io/esas/" target="_blank" class="font-semibold text-[#0969da] hover:underline">Event Specific Attendance</a>
-                                <span class="border border-[#d0d7de] rounded-full px-2 text-xs text-[#57606a] font-medium ml-auto">Public</span>
-                            </div>
-                            <p class="text-xs text-[#57606a] mb-4 h-8 line-clamp-2">Specialized digital system for efficiently tracking attendee participation across various campus events.</p>
-                        </div>
-                        <div class="flex items-center gap-4 text-xs text-[#57606a]">
-                            <div class="flex items-center gap-1">
-                                <span class="w-3 h-3 rounded-full bg-[#563d7c]"></span>
-                                <span>CSS</span>
-                            </div>
-                            <div class="flex items-center gap-1 hover:text-[#0969da] cursor-pointer">
-                                <i data-lucide="star" class="w-3 h-3"></i>
-                                <span>8</span>
-                            </div>
-                        </div>
-                    </div>
-
-                     <!-- Pin 4: Photo Booth -->
-                     <div class="border border-[#d0d7de] rounded-md p-4 flex flex-col justify-between repo-card transition-all">
-                        <div>
-                           <div class="flex items-center gap-2 mb-2">
-                               <i data-lucide="book" class="w-4 h-4 text-[#57606a]"></i>
-                               <a href="https://sirjeii.github.io/slfptb/" target="_blank" class="font-semibold text-[#0969da] hover:underline">Self Photo Booth</a>
-                               <span class="border border-[#d0d7de] rounded-full px-2 text-xs text-[#57606a] font-medium ml-auto">Public</span>
-                           </div>
-                           <p class="text-xs text-[#57606a] mb-4 h-8 line-clamp-2">Browser-based photobooth application allowing users to capture photos with custom frames.</p>
-                       </div>
-                       <div class="flex items-center gap-4 text-xs text-[#57606a]">
-                           <div class="flex items-center gap-1">
-                               <span class="w-3 h-3 rounded-full bg-[#e34c26]"></span>
-                               <span>HTML</span>
-                           </div>
-                           <div class="flex items-center gap-1 hover:text-[#0969da] cursor-pointer">
-                               <i data-lucide="star" class="w-3 h-3"></i>
-                               <span>15</span>
-                           </div>
-                       </div>
-                   </div>
-
-                    <!-- Pin 5: Esports -->
-                    <div class="border border-[#d0d7de] rounded-md p-4 flex flex-col justify-between repo-card transition-all">
-                        <div>
-                           <div class="flex items-center gap-2 mb-2">
-                               <i data-lucide="book" class="w-4 h-4 text-[#57606a]"></i>
-                               <a href="https://sirjeii.github.io/sticmesports/" target="_blank" class="font-semibold text-[#0969da] hover:underline">Esports Tournament 2025</a>
-                               <span class="border border-[#d0d7de] rounded-full px-2 text-xs text-[#57606a] font-medium ml-auto">Public</span>
-                           </div>
-                           <p class="text-xs text-[#57606a] mb-4 h-8 line-clamp-2">Registration platform for the 2025 Esports Tournament to facilitate team sign-ups.</p>
-                       </div>
-                       <div class="flex items-center gap-4 text-xs text-[#57606a]">
-                           <div class="flex items-center gap-1">
-                               <span class="w-3 h-3 rounded-full bg-[#f1e05a]"></span>
-                               <span>JavaScript</span>
-                           </div>
-                           <div class="flex items-center gap-1 hover:text-[#0969da] cursor-pointer">
-                               <i data-lucide="star" class="w-3 h-3"></i>
-                               <span>4</span>
-                           </div>
-                       </div>
-                   </div>
-
-                   <!-- Pin 6: Tagisan -->
-                   <div class="border border-[#d0d7de] rounded-md p-4 flex flex-col justify-between repo-card transition-all">
-                        <div>
-                            <div class="flex items-center gap-2 mb-2">
-                                <i data-lucide="book" class="w-4 h-4 text-[#57606a]"></i>
-                                <a href="https://sirjeii.github.io/sticmtns/" target="_blank" class="font-semibold text-[#0969da] hover:underline">Tagisan ng Talino Reg.</a>
-                                <span class="border border-[#d0d7de] rounded-full px-2 text-xs text-[#57606a] font-medium ml-auto">Public</span>
-                            </div>
-                            <p class="text-xs text-[#57606a] mb-4 h-8 line-clamp-2">Official online registration portal for the annual academic quiz bee.</p>
-                        </div>
-                        <div class="flex items-center gap-4 text-xs text-[#57606a]">
-                        <div class="flex items-center gap-1">
-                            <span class="w-3 h-3 rounded-full bg-[#e34c26]"></span>
-                            <span>HTML</span>
-                        </div>
-                        <div class="flex items-center gap-1 hover:text-[#0969da] cursor-pointer">
-                            <i data-lucide="star" class="w-3 h-3"></i>
-                            <span>2</span>
-                        </div>
-                    </div>
-                </div>
-
-                </div>
-            </section>
-
-            <!-- Projects (Repository List) -->
-            <section id="projects" class="px-4 md:px-0 mb-8 pt-8 border-t border-[#d0d7de]">
-                 <h2 class="text-xl font-semibold mb-4">Repositories</h2>
-                 
-                 <!-- Project List -->
-                 <div class="divide-y divide-[#d0d7de] border-t border-[#d0d7de]">
-
-                     <!-- Repo Item 7: Buwan ng Wika -->
-                     <div class="py-6">
-                        <div class="flex items-baseline gap-2 mb-1">
-                            <a href="https://sirjeii.github.io/bnwp/#competitions" target="_blank" class="text-lg font-semibold text-[#0969da] hover:underline">Buwan ng Wika Mechanics</a>
-                            <span class="border border-[#d0d7de] rounded-full px-2 py-0.5 text-xs text-[#57606a] font-medium">Public</span>
-                        </div>
-                        <p class="text-sm text-[#57606a] mb-3 max-w-2xl">Published an interactive informational site detailing the mechanics and criteria for the college's 'Buwan ng Wika' competitions.</p>
-                        <div class="flex items-center gap-4 text-xs text-[#57606a]">
-                           <div class="flex items-center gap-1">
-                               <span class="w-3 h-3 rounded-full bg-[#563d7c]"></span>
-                               <span>CSS</span>
-                           </div>
-                           <div>Updated on Aug 2025</div>
-                       </div>
-                    </div>
-
-                 </div>
-            </section>
-
-            <!-- Experience Section (Styled as Activity) -->
-            <section id="experience" class="px-4 md:px-0 mb-12 pt-8 border-t border-[#d0d7de]">
-                <h2 class="text-xl font-semibold mb-6">Work Experience</h2>
-                
-                <div class="relative pl-4 border-l-2 border-[#d0d7de] ml-2 space-y-8">
-                    
-                    <!-- Role 1 -->
-                    <div class="relative">
-                        <div class="absolute -left-[21px] top-1 w-3 h-3 rounded-full bg-[#d0d7de] border-2 border-white ring-2 ring-white"></div>
-                        <div class="flex flex-col sm:flex-row sm:items-baseline justify-between mb-1">
-                            <h3 class="text-base font-semibold text-[#1f2328]">Web Project Developer</h3>
-                            <span class="text-xs text-[#57606a]">2025 - Present</span>
-                        </div>
-                        <p class="text-sm text-[#57606a] italic mb-2">Freelance</p>
-                        <p class="text-sm text-[#1f2328]">Develops custom web-based projects for clients, including a comprehensive Daily Sales and Inventory System.</p>
-                    </div>
-
-                    <!-- Role 2 -->
-                    <div class="relative">
-                        <div class="absolute -left-[21px] top-1 w-3 h-3 rounded-full bg-[#d0d7de] border-2 border-white ring-2 ring-white"></div>
-                         <div class="flex flex-col sm:flex-row sm:items-baseline justify-between mb-1">
-                            <h3 class="text-base font-semibold text-[#1f2328]">Funnel Builder</h3>
-                            <span class="text-xs text-[#57606a]">2024 - Present</span>
-                        </div>
-                        <p class="text-sm text-[#57606a] italic mb-2">Remote</p>
-                        <p class="text-sm text-[#1f2328]">Analyzes competitor strategies and utilizes Funnelish to build and adapt funnel structures. Creates unique brand identities and logos.</p>
-                    </div>
-
-                    <!-- Role 3 -->
-                     <div class="relative">
-                        <div class="absolute -left-[21px] top-1 w-3 h-3 rounded-full bg-[#d0d7de] border-2 border-white ring-2 ring-white"></div>
-                         <div class="flex flex-col sm:flex-row sm:items-baseline justify-between mb-1">
-                            <h3 class="text-base font-semibold text-[#1f2328]">IT Instructor</h3>
-                            <span class="text-xs text-[#57606a]">2023 - Present</span>
-                        </div>
-                        <p class="text-sm text-[#57606a] italic mb-2">STI College Marikina</p>
-                        <p class="text-sm text-[#1f2328]">Facilitates student learning and delivers curriculum on various IT subjects using Outcomes-Based Education (OBE).</p>
-                    </div>
-
-                    <!-- Role 4 -->
-                     <div class="relative">
-                        <div class="absolute -left-[21px] top-1 w-3 h-3 rounded-full bg-[#d0d7de] border-2 border-white ring-2 ring-white"></div>
-                         <div class="flex flex-col sm:flex-row sm:items-baseline justify-between mb-1">
-                            <h3 class="text-base font-semibold text-[#1f2328]">IT Intern</h3>
-                            <span class="text-xs text-[#57606a]">2023</span>
-                        </div>
-                        <p class="text-sm text-[#57606a] italic mb-2">Xymbolic IT Solution Provider Corp.</p>
-                        <p class="text-sm text-[#1f2328]">Assisted senior IT staff in diagnosing and resolving hardware and software issues for corporate clients.</p>
-                    </div>
-
-                </div>
-            </section>
-        
-        </main>
-    </div>
-
-    <!-- Simple Footer -->
-    <footer class="border-t border-[#d0d7de] py-8 mt-12 bg-white">
-        <div class="max-w-[1280px] mx-auto px-4 md:px-8 flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-[#57606a]">
-            <div class="flex items-center gap-2">
-                <!-- Replaced GitHub logo with generic code brackets -->
-                <i data-lucide="code-2" class="w-5 h-5 opacity-40"></i>
-                <span>&copy; 2026 Ar-Jay Agbayani.</span>
             </div>
         </div>
     </footer>
 
+    <!-- Scripts -->
     <script>
+        // Initialize Lucide Icons
         lucide.createIcons();
 
-        // Simple Tab Switching Logic for aesthetics (Scrolls to section)
-        const navItems = document.querySelectorAll('.nav-item');
-        
-        navItems.forEach(item => {
-            item.addEventListener('click', (e) => {
-                // Remove active class from all
-                navItems.forEach(nav => {
-                    nav.classList.remove('active', 'border-b-2', 'border-[#fd8c73]', 'font-semibold');
-                    
-                    // FIXED: Lucide replaces <i> with <svg>, so we must target <svg> instead of <i>
-                    const icon = nav.querySelector('svg');
-                    if (icon) {
-                        icon.classList.remove('text-[#1f2328]');
-                        icon.classList.add('text-[#57606a]');
-                    }
-                });
+        // Set Current Year in Footer
+        document.getElementById('year').textContent = new Date().getFullYear();
 
-                // Add active class to clicked
-                item.classList.add('active', 'border-b-2', 'border-[#fd8c73]', 'font-semibold');
-                
-                // FIXED: Lucide replaces <i> with <svg>, so we must target <svg> instead of <i>
-                const activeIcon = item.querySelector('svg');
-                if (activeIcon) {
-                    activeIcon.classList.remove('text-[#57606a]');
-                    activeIcon.classList.add('text-[#1f2328]');
-                }
-            });
+        // Navbar Scroll Effect
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                navbar.classList.add('bg-slate-950/80', 'backdrop-blur-md', 'border-slate-800');
+                navbar.classList.remove('bg-transparent', 'border-transparent', 'py-6');
+                navbar.classList.add('py-4');
+            } else {
+                navbar.classList.remove('bg-slate-950/80', 'backdrop-blur-md', 'border-slate-800', 'py-4');
+                navbar.classList.add('bg-transparent', 'border-transparent', 'py-6');
+            }
         });
-
-        // Mobile Menu Toggle
-        const btn = document.getElementById('mobile-menu-btn');
-        // Logic to show sidebar on mobile could be added here, 
-        // currently keeps it simple as a scrollable page.
     </script>
 </body>
 </html>
