@@ -1,473 +1,393 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="en" class="h-full scroll-smooth selection:bg-[#FF3B30] selection:text-white">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ar-Jay Agbayani | Portfolio</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://unpkg.com/lucide@latest"></script>
-    <style>
-        /* Custom scrollbar and selection colors */
-        ::selection {
-            background-color: #14b8a6; /* teal-500 */
-            color: white;
-        }
-        ::-webkit-scrollbar {
-            width: 8px;
-        }
-        ::-webkit-scrollbar-track {
-            background: #020617; /* slate-950 */
-        }
-        ::-webkit-scrollbar-thumb {
-            background: #1e293b; /* slate-800 */
-            border-radius: 4px;
-        }
-        ::-webkit-scrollbar-thumb:hover {
-            background: #334155; /* slate-700 */
-        }
-        
-        /* Timeline styling */
-        .timeline-line::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            bottom: 0;
-            left: 1.25rem;
-            width: 2px;
-            background: linear-gradient(to bottom, transparent, #1e293b, transparent);
-        }
-        @media (min-width: 768px) {
-            .timeline-line::before {
-                left: 50%;
-                transform: translateX(-50%);
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <!-- SEO Meta Tags -->
+  <title>Ar-Jay C. Agbayani | Full-Stack Web Developer & IT Instructor</title>
+  <meta name="description" content="Professional portfolio of Ar-Jay C. Agbayani, Web System Consultant and IT Instructor. Specializing in PHP, Tailwind CSS, JavaScript, and custom enterprise tools.">
+  <meta name="keywords" content="Ar-Jay Agbayani, Full-Stack Developer, IT Instructor, Web System Consultant, Successo Comida, STI College, PHP, Tailwind CSS, Firebase, Marikina, Portfolio">
+  <meta name="author" content="Ar-Jay C. Agbayani">
+  
+  <!-- Fonts: Plus Jakarta Sans for Swiss Headlines, Space Mono for Retro Accents -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800;900&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+  
+  <!-- Tailwind CSS Play CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+            mono: ['"Space Mono"', 'monospace'],
+          },
+          colors: {
+            swiss: {
+              red: '#FF3B30',
+              cream: '#FAF9F5',
+              dark: '#121212',
+              cardDark: '#1C1C1E',
             }
+          }
         }
-    </style>
+      }
+    }
+  </script>
+
+  <!-- Global Custom CSS Sheet -->
+  <link rel="stylesheet" href="src/main.css">
 </head>
-<body class="bg-slate-950 text-slate-200 font-sans antialiased overflow-x-hidden">
+<body class="min-h-full bg-[#FAF9F5] text-[#121212] dark:bg-[#121212] dark:text-[#FAF9F5] font-sans transition-colors duration-300 flex flex-col justify-between antialiased">
 
-    <!-- Navigation -->
-    <nav id="navbar" class="fixed w-full z-50 transition-all duration-300 py-6 border-b border-transparent">
-        <div class="container mx-auto px-6 flex justify-between items-center">
-            <div class="text-xl font-bold tracking-tighter text-white">
-                AA<span class="text-teal-400">.</span>
-            </div>
-            <div class="hidden md:flex space-x-8 text-sm font-medium text-slate-400">
-                <a href="#about" class="hover:text-teal-400 transition-colors">About</a>
-                <a href="#skills" class="hover:text-teal-400 transition-colors">Skills</a>
-                <a href="#projects" class="hover:text-teal-400 transition-colors">Work</a>
-                <a href="#experience" class="hover:text-teal-400 transition-colors">Experience</a>
-            </div>
-            <a href="#contact" class="px-5 py-2 bg-white text-slate-950 font-semibold rounded-full hover:bg-teal-400 hover:text-white transition-all text-sm">
-                Let's Talk
-            </a>
-        </div>
-    </nav>
+  <!-- TOP HEADER / NAV BAR -->
+  <header class="w-full border-b-2 border-black dark:border-white sticky top-0 z-40 bg-[#FAF9F5]/90 dark:bg-[#121212]/90 backdrop-blur-md">
+    <div class="max-w-7xl mx-auto px-6 md:px-12 py-5 flex flex-col md:flex-row items-center justify-between gap-4">
+      <!-- Minimalist Logo -->
+      <a href="#" class="flex items-center gap-3 group" id="nav-logo">
+        <span class="w-6 h-6 bg-[#FF3B30] border-2 border-black dark:border-white group-hover:rotate-45 transition-transform duration-200"></span>
+        <span class="font-mono text-sm font-black uppercase tracking-wider">A. AGBAYANI // PORTFOLIO</span>
+      </a>
 
-    <!-- Hero Section -->
-    <header class="relative pt-40 pb-20 lg:pt-56 lg:pb-32 overflow-hidden">
-        <!-- Abstract Background Elements -->
-        <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-teal-500/20 blur-[120px] rounded-full pointer-events-none"></div>
-        <div class="absolute top-40 right-0 w-[400px] h-[400px] bg-blue-600/10 blur-[100px] rounded-full pointer-events-none"></div>
+      <!-- Status Bar -->
+      <div class="flex items-center gap-2 px-3 py-1 bg-zinc-100 dark:bg-zinc-800 border border-black/10 dark:border-white/10 rounded-full font-mono text-[10px] sm:text-xs">
+        <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+        <span class="text-zinc-700 dark:text-zinc-300">● PILOTING ENTERPRISE WORKFLOWS</span>
+      </div>
 
-        <div class="container mx-auto px-6 relative z-10">
-            <div class="flex flex-col-reverse lg:flex-row items-center gap-12 lg:gap-8">
-                <!-- Text Content -->
-                <div class="flex-1 max-w-3xl text-center lg:text-left">
-                    <div class="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-slate-900 border border-slate-800 text-teal-400 text-sm font-medium mb-6">
-                        <span class="relative flex h-2 w-2">
-                            <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-teal-400 opacity-75"></span>
-                            <span class="relative inline-flex rounded-full h-2 w-2 bg-teal-500"></span>
-                        </span>
-                        <span>Available for Freelance Projects</span>
-                    </div>
-                    
-                    <h1 class="text-5xl lg:text-7xl font-bold tracking-tight text-white mb-6 leading-[1.1]">
-                        Hi, I'm Ar-Jay. <br />
-                        <span class="text-transparent bg-clip-text bg-gradient-to-r from-teal-400 to-blue-500">
-                            Full-Stack Developer & Funnel Builder
-                        </span>
-                    </h1>
-                    
-                    <p class="text-lg lg:text-xl text-slate-400 mb-10 max-w-2xl mx-auto lg:mx-0 leading-relaxed">
-                        Building high-conversion web systems and functional full-stack applications.
-                    </p>
-                    
-                    <div class="flex flex-wrap gap-4 justify-center lg:justify-start">
-                        <a href="#projects" class="px-8 py-4 bg-teal-500 text-slate-950 font-bold rounded-xl hover:bg-teal-400 transition-colors flex items-center group">
-                            View My Work
-                            <i data-lucide="chevron-right" class="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform"></i>
-                        </a>
-                        <a href="mailto:arjayagbayani38@gmail.com" class="px-8 py-4 bg-slate-900 text-white font-medium rounded-xl border border-slate-800 hover:border-slate-700 transition-colors flex items-center">
-                            <i data-lucide="mail" class="mr-2 w-5 h-5 text-slate-400"></i>
-                            Contact Me
-                        </a>
-                    </div>
-                </div>
-
-                <!-- Profile Image Container -->
-                <div class="w-full lg:w-1/3 flex justify-center lg:justify-end">
-                    <div class="relative w-64 h-64 md:w-80 md:h-80 group">
-                        <!-- Decorative glow and ring behind image -->
-                        <div class="absolute inset-0 bg-teal-500/20 blur-2xl rounded-full group-hover:bg-teal-500/30 transition-colors duration-500"></div>
-                        <div class="absolute inset-0 rounded-full border-2 border-teal-500/30 translate-x-4 translate-y-4"></div>
-                        
-                        <!-- 
-                          HOW TO ADD YOUR PICTURE:
-                          1. Put your image file (e.g., 'profile.jpg') in the same folder as this index.html file on Github.
-                          2. Replace the 'src' link below with the name of your file.
-                          Example: src="profile.jpg"
-                        -->
-                        <img src="images/image.jpg" 
-                             alt="Ar-Jay Agbayani" 
-                             class="relative z-10 w-full h-full object-cover rounded-full border-4 border-slate-950 shadow-2xl grayscale hover:grayscale-0 transition-all duration-500" />
-                    </div>
-                </div>
-            </div>
-        </div>
-    </header>
-
-    <!-- About & Skills Section -->
-    <section id="skills" class="py-20 bg-slate-950">
-        <div class="container mx-auto px-6">
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                
-                <!-- About Card -->
-                <div class="md:col-span-2 bg-slate-900 border border-slate-800 p-8 rounded-3xl relative overflow-hidden group">
-                    <div class="absolute top-0 right-0 p-8 opacity-10 group-hover:opacity-20 transition-opacity">
-                        <i data-lucide="code" class="w-32 h-32 text-teal-400"></i>
-                    </div>
-                    <h2 class="text-2xl font-bold text-white mb-4">About Me</h2>
-                    <p class="text-slate-400 leading-relaxed max-w-lg relative z-10">
-                        A dedicated IT professional with hands-on experience in full-stack web development, high-converting sales funnels, and IT instruction. I bridge the gap between complex technical problem-solving and user-friendly, optimized web solutions.
-                    </p>
-                    <div class="mt-8 flex flex-wrap gap-4 relative z-10">
-                        <div class="flex items-center text-sm text-slate-300 bg-slate-950 px-4 py-2 rounded-lg border border-slate-800">
-                            <i data-lucide="map-pin" class="w-4 h-4 mr-2 text-teal-400"></i> Marikina, Philippines
-                        </div>
-                        <div class="flex items-center text-sm text-slate-300 bg-slate-950 px-4 py-2 rounded-lg border border-slate-800">
-                            <i data-lucide="graduation-cap" class="w-4 h-4 mr-2 text-teal-400"></i> BSIT Graduate
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Quick Contact Card -->
-                <div class="bg-gradient-to-br from-teal-500/10 to-blue-600/10 border border-teal-500/20 p-8 rounded-3xl flex flex-col justify-center">
-                    <h3 class="text-lg font-semibold text-white mb-6">Connect</h3>
-                    <div class="space-y-4">
-                        <a href="mailto:arjayagbayani38@gmail.com" class="flex items-center text-slate-300 hover:text-teal-400 transition-colors">
-                            <div class="w-10 h-10 rounded-full bg-slate-900 flex items-center justify-center mr-4 border border-slate-800">
-                                <i data-lucide="mail" class="w-4 h-4"></i>
-                            </div>
-                            <span class="text-sm truncate">arjayagbayani38@gmail.com</span>
-                        </a>
-                        <a href="tel:09760843180" class="flex items-center text-slate-300 hover:text-teal-400 transition-colors">
-                            <div class="w-10 h-10 rounded-full bg-slate-900 flex items-center justify-center mr-4 border border-slate-800">
-                                <i data-lucide="phone" class="w-4 h-4"></i>
-                            </div>
-                            <span class="text-sm">09760843180</span>
-                        </a>
-                    </div>
-                </div>
-
-                <!-- Skill Matrix Cards -->
-                <div class="bg-slate-900 border border-slate-800 p-8 rounded-3xl hover:border-slate-700 transition-colors">
-                    <div class="w-12 h-12 rounded-xl bg-slate-950 border border-slate-800 flex items-center justify-center text-teal-400 mb-6">
-                        <i data-lucide="code" class="w-6 h-6"></i>
-                    </div>
-                    <h3 class="text-lg font-semibold text-white mb-2">Web Development</h3>
-                    <p class="text-sm text-slate-400 leading-relaxed">Front-End & Backend, System Architecting, Prototyping</p>
-                </div>
-
-                <div class="bg-slate-900 border border-slate-800 p-8 rounded-3xl hover:border-slate-700 transition-colors">
-                    <div class="w-12 h-12 rounded-xl bg-slate-950 border border-slate-800 flex items-center justify-center text-teal-400 mb-6">
-                        <i data-lucide="filter" class="w-6 h-6"></i>
-                    </div>
-                    <h3 class="text-lg font-semibold text-white mb-2">Conversion Funnels</h3>
-                    <p class="text-sm text-slate-400 leading-relaxed">Funnelish, Traffic to Checkout Flows, A/B Optimization</p>
-                </div>
-
-                <div class="bg-slate-900 border border-slate-800 p-8 rounded-3xl hover:border-slate-700 transition-colors">
-                    <div class="w-12 h-12 rounded-xl bg-slate-950 border border-slate-800 flex items-center justify-center text-teal-400 mb-6">
-                        <i data-lucide="monitor" class="w-6 h-6"></i>
-                    </div>
-                    <h3 class="text-lg font-semibold text-white mb-2">IT & Hardware</h3>
-                    <p class="text-sm text-slate-400 leading-relaxed">System Servicing, Outcomes-Based Education (OBE)</p>
-                </div>
-
-            </div>
-        </div>
-    </section>
-
-    <!-- Complete Projects Section -->
-    <section id="projects" class="py-24 bg-slate-950">
-        <div class="container mx-auto px-6">
-            <div class="mb-16">
-                <h2 class="text-4xl font-bold text-white mb-4">Complete Web Portfolio</h2>
-                <p class="text-slate-400 max-w-xl text-lg">A comprehensive list of enterprise systems, event portals, and interactive applications I've developed.</p>
-            </div>
-
-            <!-- Client & Enterprise Systems -->
-            <h3 class="text-xl font-bold text-teal-400 mb-6 border-b border-slate-800 pb-2">Client: Successo Comida Food Corporation</h3>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
-                <div class="bg-slate-900 border border-slate-800 rounded-2xl p-6 hover:border-slate-700 transition-colors">
-                    <h4 class="text-lg font-bold text-white mb-2">Sales & Inventory System</h4>
-                    <p class="text-sm text-slate-400 mb-4">Real-time daily sales tracking and inventory management.</p>
-                    <span class="text-xs font-medium text-slate-300 bg-slate-950 border border-slate-800 px-3 py-1 rounded-lg">Enterprise</span>
-                </div>
-                <div class="bg-slate-900 border border-slate-800 rounded-2xl p-6 hover:border-slate-700 transition-colors">
-                    <h4 class="text-lg font-bold text-white mb-2">Asset Management</h4>
-                    <p class="text-sm text-slate-400 mb-4">System to track, manage, and report warehouse equipment.</p>
-                    <span class="text-xs font-medium text-slate-300 bg-slate-950 border border-slate-800 px-3 py-1 rounded-lg">Enterprise</span>
-                </div>
-                <div class="bg-slate-900 border border-slate-800 rounded-2xl p-6 hover:border-slate-700 transition-colors">
-                    <h4 class="text-lg font-bold text-white mb-2">Procurement System</h4>
-                    <p class="text-sm text-slate-400 mb-4">Digital platform streamlining purchasing and supplier orders.</p>
-                    <span class="text-xs font-medium text-slate-300 bg-slate-950 border border-slate-800 px-3 py-1 rounded-lg">Enterprise</span>
-                </div>
-                <div class="bg-slate-900 border border-slate-800 rounded-2xl p-6 hover:border-slate-700 transition-colors">
-                    <h4 class="text-lg font-bold text-white mb-2">Payroll System</h4>
-                    <p class="text-sm text-slate-400 mb-4">Automated system for employee compensation and financial records.</p>
-                    <span class="text-xs font-medium text-slate-300 bg-slate-950 border border-slate-800 px-3 py-1 rounded-lg">Enterprise</span>
-                </div>
-            </div>
-
-            <!-- Hosted Applications & Portals -->
-            <h3 class="text-xl font-bold text-teal-400 mb-6 border-b border-slate-800 pb-2">Web Utilities, Portals & Prototypes</h3>
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
-                
-                <!-- Project 1 -->
-                <div class="group relative bg-slate-900 border border-slate-800 rounded-3xl p-8 hover:bg-slate-800/50 transition-all duration-300 flex flex-col justify-between overflow-hidden">
-                    <div class="flex justify-between items-start mb-6">
-                        <span class="text-xs font-semibold tracking-wider uppercase text-teal-400 bg-teal-400/10 px-3 py-1 rounded-full">Web Utility</span>
-                        <a href="https://sirjeii.github.io/proctor/" target="_blank" rel="noreferrer" class="text-slate-500 hover:text-teal-400 transition-colors">
-                            <i data-lucide="external-link" class="w-5 h-5"></i>
-                        </a>
-                    </div>
-                    <div>
-                        <h4 class="text-2xl font-bold text-white mb-3">Exam Proctor Manager</h4>
-                        <p class="text-slate-400 leading-relaxed mb-6">Client: STI College Marikina<br/>Created a web utility to assist exam administrators in managing proctoring schedules and monitoring sessions.</p>
-                    </div>
-                    <div class="flex gap-2">
-                        <span class="text-xs font-medium text-slate-300 bg-slate-950 border border-slate-800 px-3 py-1 rounded-lg">Management Tool</span>
-                    </div>
-                </div>
-
-                <!-- Project 2 -->
-                <div class="group relative bg-slate-900 border border-slate-800 rounded-3xl p-8 hover:bg-slate-800/50 transition-all duration-300 flex flex-col justify-between overflow-hidden">
-                    <div class="flex justify-between items-start mb-6">
-                        <span class="text-xs font-semibold tracking-wider uppercase text-teal-400 bg-teal-400/10 px-3 py-1 rounded-full">Interactive App</span>
-                        <a href="https://sirjeii.github.io/slfptb/" target="_blank" rel="noreferrer" class="text-slate-500 hover:text-teal-400 transition-colors">
-                            <i data-lucide="external-link" class="w-5 h-5"></i>
-                        </a>
-                    </div>
-                    <div>
-                        <h4 class="text-2xl font-bold text-white mb-3">Selfphotobooth App</h4>
-                        <p class="text-slate-400 leading-relaxed mb-6">Client: STI College Marikina<br/>Developed a browser-based photobooth application allowing users to capture photos with custom frames and interactive features.</p>
-                    </div>
-                    <div class="flex gap-2">
-                        <span class="text-xs font-medium text-slate-300 bg-slate-950 border border-slate-800 px-3 py-1 rounded-lg">Camera API</span>
-                        <span class="text-xs font-medium text-slate-300 bg-slate-950 border border-slate-800 px-3 py-1 rounded-lg">Events</span>
-                    </div>
-                </div>
-
-                <!-- Project 3 -->
-                <div class="group relative bg-slate-900 border border-slate-800 rounded-3xl p-8 hover:bg-slate-800/50 transition-all duration-300 flex flex-col justify-between overflow-hidden">
-                    <div class="flex justify-between items-start mb-6">
-                        <span class="text-xs font-semibold tracking-wider uppercase text-teal-400 bg-teal-400/10 px-3 py-1 rounded-full">Utility</span>
-                        <a href="https://sirjeii.github.io/esas/" target="_blank" rel="noreferrer" class="text-slate-500 hover:text-teal-400 transition-colors">
-                            <i data-lucide="external-link" class="w-5 h-5"></i>
-                        </a>
-                    </div>
-                    <div>
-                        <h4 class="text-2xl font-bold text-white mb-3">Event Attendance System</h4>
-                        <p class="text-slate-400 leading-relaxed mb-6">Client: STI College Marikina<br/>Built a specialized digital system for efficiently tracking attendee participation across various campus events.</p>
-                    </div>
-                    <div class="flex gap-2">
-                        <span class="text-xs font-medium text-slate-300 bg-slate-950 border border-slate-800 px-3 py-1 rounded-lg">Tracking</span>
-                    </div>
-                </div>
-
-                <!-- Project 4 -->
-                <div class="group relative bg-slate-900 border border-slate-800 rounded-3xl p-8 hover:bg-slate-800/50 transition-all duration-300 flex flex-col justify-between overflow-hidden">
-                    <div class="flex justify-between items-start mb-6">
-                        <span class="text-xs font-semibold tracking-wider uppercase text-teal-400 bg-teal-400/10 px-3 py-1 rounded-full">Information Site</span>
-                        <a href="https://sirjeii.github.io/bnwp/#competitions" target="_blank" rel="noreferrer" class="text-slate-500 hover:text-teal-400 transition-colors">
-                            <i data-lucide="external-link" class="w-5 h-5"></i>
-                        </a>
-                    </div>
-                    <div>
-                        <h4 class="text-2xl font-bold text-white mb-3">Buwan ng Wika Mechanics</h4>
-                        <p class="text-slate-400 leading-relaxed mb-6">Client: STI College Marikina<br/>Published an interactive informational site detailing the mechanics and criteria for the college's competitions.</p>
-                    </div>
-                    <div class="flex gap-2">
-                        <span class="text-xs font-medium text-slate-300 bg-slate-950 border border-slate-800 px-3 py-1 rounded-lg">Web Design</span>
-                    </div>
-                </div>
-
-                <!-- Project 5 -->
-                <div class="group relative bg-slate-900 border border-slate-800 rounded-3xl p-8 hover:bg-slate-800/50 transition-all duration-300 flex flex-col justify-between overflow-hidden">
-                    <div class="flex justify-between items-start mb-6">
-                        <span class="text-xs font-semibold tracking-wider uppercase text-teal-400 bg-teal-400/10 px-3 py-1 rounded-full">Registration Portal</span>
-                        <a href="https://sirjeii.github.io/sticmtns/" target="_blank" rel="noreferrer" class="text-slate-500 hover:text-teal-400 transition-colors">
-                            <i data-lucide="external-link" class="w-5 h-5"></i>
-                        </a>
-                    </div>
-                    <div>
-                        <h4 class="text-2xl font-bold text-white mb-3">Tagisan ng Talino Registration</h4>
-                        <p class="text-slate-400 leading-relaxed mb-6">Client: STI College Marikina<br/>Developed the official online registration portal for the annual academic quiz bee, streamlining participant data collection.</p>
-                    </div>
-                    <div class="flex gap-2">
-                        <span class="text-xs font-medium text-slate-300 bg-slate-950 border border-slate-800 px-3 py-1 rounded-lg">Data Collection</span>
-                    </div>
-                </div>
-
-                <!-- Project 6 -->
-                <div class="group relative bg-slate-900 border border-slate-800 rounded-3xl p-8 hover:bg-slate-800/50 transition-all duration-300 flex flex-col justify-between overflow-hidden">
-                    <div class="flex justify-between items-start mb-6">
-                        <span class="text-xs font-semibold tracking-wider uppercase text-teal-400 bg-teal-400/10 px-3 py-1 rounded-full">Registration Portal</span>
-                        <a href="https://sirjeii.github.io/sticmesports/" target="_blank" rel="noreferrer" class="text-slate-500 hover:text-teal-400 transition-colors">
-                            <i data-lucide="external-link" class="w-5 h-5"></i>
-                        </a>
-                    </div>
-                    <div>
-                        <h4 class="text-2xl font-bold text-white mb-3">Esports Tournament 2025</h4>
-                        <p class="text-slate-400 leading-relaxed mb-6">Client: STI College Marikina<br/>Created the registration platform for the 2025 Esports Tournament to facilitate team sign-ups and management.</p>
-                    </div>
-                    <div class="flex gap-2">
-                        <span class="text-xs font-medium text-slate-300 bg-slate-950 border border-slate-800 px-3 py-1 rounded-lg">Portals</span>
-                    </div>
-                </div>
-
-                <!-- Project 7 -->
-                <div class="group relative bg-slate-900 border border-slate-800 rounded-3xl p-8 hover:bg-slate-800/50 transition-all duration-300 flex flex-col justify-between overflow-hidden lg:col-span-2">
-                    <div class="flex justify-between items-start mb-6">
-                        <span class="text-xs font-semibold tracking-wider uppercase text-teal-400 bg-teal-400/10 px-3 py-1 rounded-full">Prototype</span>
-                        <a href="https://sabaybyaheph.netlify.app" target="_blank" rel="noreferrer" class="text-slate-500 hover:text-teal-400 transition-colors">
-                            <i data-lucide="external-link" class="w-5 h-5"></i>
-                        </a>
-                    </div>
-                    <div>
-                        <h4 class="text-2xl font-bold text-white mb-3">Prototype of SabayByahePH</h4>
-                        <p class="text-slate-400 leading-relaxed mb-6">Created an interactive prototype for SabayByahePH, a micro-carpooling application, focusing heavily on user interface design and user experience mapping.</p>
-                    </div>
-                    <div class="flex gap-2">
-                        <span class="text-xs font-medium text-slate-300 bg-slate-950 border border-slate-800 px-3 py-1 rounded-lg">UI/UX Design</span>
-                        <span class="text-xs font-medium text-slate-300 bg-slate-950 border border-slate-800 px-3 py-1 rounded-lg">Figma/Prototyping</span>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-    </section>
-
-    <!-- Experience Timeline -->
-    <section id="experience" class="py-24 bg-slate-900/50 border-t border-slate-800/50">
-        <div class="container mx-auto px-6 max-w-4xl">
-            <div class="flex items-center mb-16">
-                <i data-lucide="briefcase" class="w-8 h-8 text-teal-400 mr-4"></i>
-                <h2 class="text-4xl font-bold text-white">Experience</h2>
-            </div>
-
-            <div class="space-y-12 relative timeline-line">
-                
-                <!-- Experience Item 1 -->
-                <div class="relative flex items-center justify-between md:justify-normal md:flex-row-reverse group">
-                    <div class="flex items-center justify-center w-10 h-10 rounded-full border-4 border-slate-950 bg-slate-800 group-hover:bg-teal-400 group-hover:border-teal-500/30 transition-colors shadow shrink-0 md:order-1 md:-translate-x-1/2 relative z-10">
-                        <div class="w-2 h-2 bg-slate-400 group-hover:bg-slate-950 rounded-full"></div>
-                    </div>
-                    <div class="w-[calc(100%-4rem)] md:w-[calc(50%-2.5rem)] p-6 rounded-3xl bg-slate-900 border border-slate-800 hover:border-slate-700 transition-colors shadow-lg">
-                        <div class="flex flex-col mb-2">
-                            <span class="text-teal-400 font-bold text-sm tracking-wide mb-1">2025 - Present</span>
-                            <h3 class="text-xl font-bold text-white">Web Project Developer</h3>
-                        </div>
-                        <div class="text-slate-400 text-sm font-medium mb-4">Freelance, Remote</div>
-                        <p class="text-slate-400 leading-relaxed text-sm">Develops custom web-based projects for clients, including a comprehensive Daily Sales and Inventory System. Focuses on creating functional and user-friendly web applications.</p>
-                    </div>
-                </div>
-
-                <!-- Experience Item 2 -->
-                <div class="relative flex items-center justify-between md:justify-normal group">
-                    <div class="flex items-center justify-center w-10 h-10 rounded-full border-4 border-slate-950 bg-slate-800 group-hover:bg-teal-400 group-hover:border-teal-500/30 transition-colors shadow shrink-0 md:order-1 md:translate-x-1/2 relative z-10">
-                        <div class="w-2 h-2 bg-slate-400 group-hover:bg-slate-950 rounded-full"></div>
-                    </div>
-                    <div class="w-[calc(100%-4rem)] md:w-[calc(50%-2.5rem)] p-6 rounded-3xl bg-slate-900 border border-slate-800 hover:border-slate-700 transition-colors shadow-lg">
-                        <div class="flex flex-col mb-2">
-                            <span class="text-teal-400 font-bold text-sm tracking-wide mb-1">2024 - Present</span>
-                            <h3 class="text-xl font-bold text-white">Funnel Builder</h3>
-                        </div>
-                        <div class="text-slate-400 text-sm font-medium mb-4">Freelance, Remote</div>
-                        <p class="text-slate-400 leading-relaxed text-sm">Responsible for building and optimizing high converting sales funnels. Designed end-to-end funnel flows from traffic acquisition to checkout, improving conversion rates.</p>
-                    </div>
-                </div>
-
-                <!-- Experience Item 3 -->
-                <div class="relative flex items-center justify-between md:justify-normal md:flex-row-reverse group">
-                    <div class="flex items-center justify-center w-10 h-10 rounded-full border-4 border-slate-950 bg-slate-800 group-hover:bg-teal-400 group-hover:border-teal-500/30 transition-colors shadow shrink-0 md:order-1 md:-translate-x-1/2 relative z-10">
-                        <div class="w-2 h-2 bg-slate-400 group-hover:bg-slate-950 rounded-full"></div>
-                    </div>
-                    <div class="w-[calc(100%-4rem)] md:w-[calc(50%-2.5rem)] p-6 rounded-3xl bg-slate-900 border border-slate-800 hover:border-slate-700 transition-colors shadow-lg">
-                        <div class="flex flex-col mb-2">
-                            <span class="text-teal-400 font-bold text-sm tracking-wide mb-1">2023 - Present</span>
-                            <h3 class="text-xl font-bold text-white">IT Instructor</h3>
-                        </div>
-                        <div class="text-slate-400 text-sm font-medium mb-4">STI College Marikina</div>
-                        <p class="text-slate-400 leading-relaxed text-sm">Facilitates student learning on various IT subjects using an Outcomes-Based Education (OBE) approach. Develops materials and assesses student performance.</p>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-    </section>
-
-    <!-- Contact CTA -->
-    <section id="contact" class="py-24 bg-slate-950 relative overflow-hidden">
-        <div class="absolute bottom-0 left-1/2 -translate-x-1/2 w-[600px] h-[300px] bg-teal-500/10 blur-[100px] rounded-full pointer-events-none"></div>
+      <!-- Nav List -->
+      <nav class="flex items-center gap-6 font-mono text-xs uppercase" id="nav-links">
+        <a href="#experience" class="hover:text-[#FF3B30] dark:hover:text-[#FF453A] transition-colors">01_Exp</a>
+        <a href="#projects" class="hover:text-[#FF3B30] dark:hover:text-[#FF453A] transition-colors">02_Proj</a>
+        <a href="#credentials" class="hover:text-[#FF3B30] dark:hover:text-[#FF453A] transition-colors">03_Cred</a>
+        <a href="#contact" class="hover:text-[#FF3B30] dark:hover:text-[#FF453A] transition-colors">04_Contact</a>
         
-        <div class="container mx-auto px-6 max-w-4xl text-center relative z-10">
-            <h2 class="text-4xl md:text-5xl font-bold text-white mb-6">Ready to build something great?</h2>
-            <p class="text-xl text-slate-400 mb-10">
-                Whether you need a full-stack system, a high-converting sales funnel, or a functional prototype, I'm ready to help.
+        <!-- High Contrast Mode Toggle -->
+        <button id="theme-toggle-btn" class="ml-2 px-3 py-1.5 border border-black dark:border-white hover:bg-black hover:text-white dark:hover:bg-white dark:hover:text-black transition-all duration-150 text-[10px] font-bold" aria-label="Toggle Theme">
+          <span id="theme-toggle-label">01 / Dark Mode</span>
+        </button>
+      </nav>
+    </div>
+  </header>
+
+  <!-- MAIN WRAPPER -->
+  <main class="flex-grow max-w-7xl w-full mx-auto px-6 md:px-12 py-8 space-y-24">
+
+    <!-- HERO SECTION (Swiss Grid Layout A) -->
+    <section class="grid grid-cols-1 lg:grid-cols-12 gap-0 border-b-2 border-black dark:border-white pb-16 pt-8 md:pt-16" id="hero-section">
+      <!-- Huge Typography Headline -->
+      <div class="lg:col-span-9 border-r-0 lg:border-r border-black dark:border-white pr-0 lg:pr-12 pb-10 lg:pb-0">
+        <span class="inline-block font-mono text-xs text-[#FF3B30] dark:text-[#FF453A] font-bold uppercase mb-4 tracking-widest">[ INTRODUCTION ]</span>
+        <h1 class="text-5xl sm:text-7xl lg:text-8xl font-black tracking-tight leading-[0.9] uppercase font-sans">
+          Building Systems.<br/>
+          Guiding Minds.
+        </h1>
+        <p class="mt-8 text-lg sm:text-xl md:max-w-3xl text-zinc-700 dark:text-zinc-300 leading-relaxed font-sans">
+          Full-Stack Web Developer engineering enterprise database workflows at Successo Comida Food Corp, freelance funnel optimizer maximizing conversion pipelines, and academic IT instructor mentoring future developers at STI College.
+        </p>
+      </div>
+
+      <!-- Sidebar Quick Stats & CTAs -->
+      <div class="lg:col-span-3 flex flex-col justify-between pl-0 lg:pl-12 pt-10 lg:pt-0 border-t border-black dark:border-white lg:border-t-0">
+        <div class="space-y-6">
+          <div>
+            <span class="block font-mono text-xs uppercase text-zinc-500 mb-1">01 / Current Targets</span>
+            <p class="text-sm font-bold tracking-tight font-sans">Enterprise Ops, Predictive Analytics, Outcome-Based Pedagogical Methods</p>
+          </div>
+          <div>
+            <span class="block font-mono text-xs uppercase text-zinc-500 mb-1">02 / Stack Backbone</span>
+            <p class="font-mono text-xs tracking-tight bg-zinc-100 dark:bg-zinc-800 p-2.5 border border-black/10 dark:border-white/10 rounded">
+              HTML, CSS, JS, PHP, Tailwind, Firebase, Git
             </p>
-            <a href="mailto:arjayagbayani38@gmail.com" class="inline-flex items-center px-8 py-4 bg-white text-slate-950 font-bold rounded-xl hover:bg-teal-400 hover:text-white transition-all text-lg">
-                Get In Touch
-                <i data-lucide="mail" class="ml-3 w-5 h-5"></i>
-            </a>
+          </div>
         </div>
+        
+        <!-- CTA Action Buttons -->
+        <div class="mt-12 space-y-4">
+          <a href="#projects" class="relative group inline-flex items-center justify-between w-full px-6 py-4 bg-[#FF3B30] text-white border-2 border-black font-mono font-bold uppercase transition-transform hover:-translate-x-1 hover:-translate-y-1 active:translate-x-0 active:translate-y-0 shadow-[4px_4px_0px_#000] dark:shadow-[4px_4px_0px_#fff] hover:shadow-[6px_6px_0px_#000] dark:hover:shadow-[6px_6px_0px_#fff] hover-lift-red" id="cta-explore">
+            Explore Architecture
+            <span>→</span>
+          </a>
+          <a href="file:///d:/portfolio/AR-JAY%20AGBAYANI%20CV%20COPY.pdf" target="_blank" class="inline-flex items-center justify-between w-full px-6 py-4 bg-transparent hover:bg-zinc-150 border-2 border-black dark:border-white font-mono font-bold uppercase hover:bg-black/5 dark:hover:bg-white/5 transition-all duration-150" id="cta-resume">
+            Download CV (PDF)
+            <span class="text-xs">PDF</span>
+          </a>
+        </div>
+      </div>
     </section>
 
-    <!-- Footer -->
-    <footer class="bg-slate-950 border-t border-slate-800 py-10">
-        <div class="container mx-auto px-6 flex flex-col md:flex-row justify-between items-center text-sm text-slate-500">
-            <p>&copy; <span id="year"></span> Ar-Jay Agbayani. All rights reserved.</p>
-            <div class="flex space-x-6 mt-4 md:mt-0">
-                <a href="#navbar" class="hover:text-teal-400 transition-colors cursor-pointer">
-                    Back to Top
-                </a>
+    <!-- DUAL-TRACK TIMELINE SECTION -->
+    <section class="space-y-10" id="experience">
+      <div class="border-b border-black dark:border-white pb-4">
+        <span class="font-mono text-xs text-zinc-500 uppercase">Track 01 // History</span>
+        <h2 class="text-3xl font-black uppercase tracking-tight">Work Experience & Leadership</h2>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-12 divide-y md:divide-y-0 md:divide-x divide-black dark:divide-white">
+        <!-- Left Track: Enterprise Systems -->
+        <div class="space-y-8 pr-0 md:pr-6">
+          <div class="flex items-center justify-between border-b-2 border-black dark:border-white pb-3">
+            <h3 class="font-mono text-sm font-bold uppercase text-[#FF3B30] dark:text-[#FF453A]">[ A / ENTERPRISE ENGINEERING ]</h3>
+            <span class="font-mono text-xs text-zinc-500">CLIENT: SUCCESSO COMIDA</span>
+          </div>
+
+          <!-- Role 1 -->
+          <div class="space-y-3">
+            <div class="flex flex-col sm:flex-row sm:items-baseline justify-between gap-1">
+              <h4 class="text-xl font-bold uppercase tracking-tight">Web System Consultant</h4>
+              <span class="font-mono text-xs px-2 py-0.5 bg-black text-white dark:bg-white dark:text-black">2024 – Present</span>
             </div>
+            <p class="text-zinc-500 font-mono text-xs uppercase">Successo Comida Food Corporation</p>
+            <ul class="list-none space-y-2 text-sm text-zinc-700 dark:text-zinc-300">
+              <li class="pl-4 border-l-2 border-[#FF3B30]">Provide strategic technical consultation and architecture design for complex enterprise workflows.</li>
+              <li class="pl-4 border-l-2 border-[#FF3B30]">Oversee development of unified back-office products: inventory dashboards, employee rosters, and procurement ledgers.</li>
+            </ul>
+          </div>
+
+          <!-- Role 2 -->
+          <div class="space-y-3">
+            <div class="flex flex-col sm:flex-row sm:items-baseline justify-between gap-1">
+              <h4 class="text-xl font-bold uppercase tracking-tight">Web Based System Developer</h4>
+              <span class="font-mono text-xs px-2 py-0.5 bg-black text-white dark:bg-white dark:text-black">2024 – Present</span>
+            </div>
+            <p class="text-zinc-500 font-mono text-xs uppercase">Successo Comida Food Corporation</p>
+            <ul class="list-none space-y-2 text-sm text-zinc-700 dark:text-zinc-300">
+              <li class="pl-4 border-l-2 border-[#FF3B30]">Develop custom database platforms for clients, incorporating secure PHP backend code.</li>
+              <li class="pl-4 border-l-2 border-[#FF3B30]">Integrate predictive AI projections and analysis widgets to calculate client inventory demands.</li>
+            </ul>
+          </div>
         </div>
-    </footer>
 
-    <!-- Scripts -->
-    <script>
-        // Initialize Lucide Icons
-        lucide.createIcons();
+        <!-- Right Track: Academic & Instruction -->
+        <div class="space-y-8 pl-0 md:pl-12 pt-8 md:pt-0">
+          <div class="flex items-center justify-between border-b-2 border-black dark:border-white pb-3">
+            <h3 class="font-mono text-sm font-bold uppercase text-[#FF3B30] dark:text-[#FF453A]">[ B / ACADEMIC LEADERSHIP ]</h3>
+            <span class="font-mono text-xs text-zinc-500">STI COLLEGE MARIKINA</span>
+          </div>
 
-        // Set Current Year in Footer
-        document.getElementById('year').textContent = new Date().getFullYear();
+          <!-- Role 3 -->
+          <div class="space-y-3">
+            <div class="flex flex-col sm:flex-row sm:items-baseline justify-between gap-1">
+              <h4 class="text-xl font-bold uppercase tracking-tight">IT Instructor</h4>
+              <span class="font-mono text-xs px-2 py-0.5 bg-black text-white dark:bg-white dark:text-black">2023 – Present</span>
+            </div>
+            <p class="text-zinc-500 font-mono text-xs uppercase">STI College Marikina, Marikina City</p>
+            <ul class="list-none space-y-2 text-sm text-zinc-700 dark:text-zinc-300">
+              <li class="pl-4 border-l-2 border-black dark:border-white">Instruct higher-education classes in front-end and backend programming paradigms using the Outcomes-Based Education (OBE) model.</li>
+              <li class="pl-4 border-l-2 border-black dark:border-white">Formulate custom curriculum guides, evaluate technical projects, and lead Git code reviews.</li>
+              <li class="pl-4 border-l-2 border-black dark:border-white">Actively construct internal utilities to automate admin proctoring and event registration.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
 
-        // Navbar Scroll Effect
-        const navbar = document.getElementById('navbar');
-        window.addEventListener('scroll', () => {
-            if (window.scrollY > 50) {
-                navbar.classList.add('bg-slate-950/80', 'backdrop-blur-md', 'border-slate-800');
-                navbar.classList.remove('bg-transparent', 'border-transparent', 'py-6');
-                navbar.classList.add('py-4');
-            } else {
-                navbar.classList.remove('bg-slate-950/80', 'backdrop-blur-md', 'border-slate-800', 'py-4');
-                navbar.classList.add('bg-transparent', 'border-transparent', 'py-6');
-            }
-        });
-    </script>
+    <!-- INTERACTIVE PROJECTS GRID SECTION -->
+    <section class="space-y-8" id="projects">
+      <div class="flex flex-col md:flex-row md:items-end justify-between border-b border-black dark:border-white pb-4 gap-4">
+        <div>
+          <span class="font-mono text-xs text-zinc-500 uppercase">Track 02 // Showcase</span>
+          <h2 class="text-3xl font-black uppercase tracking-tight">Production Code & Systems</h2>
+        </div>
+        <!-- Filtering Buttons Toolbar -->
+        <div class="flex flex-wrap gap-2 font-mono text-xs" id="project-filters">
+          <button data-filter="all" class="filter-btn px-4 py-2 border-2 border-black dark:border-white bg-black text-white dark:bg-white dark:text-black uppercase transition-all duration-150">All Works</button>
+          <button data-filter="enterprise" class="filter-btn px-4 py-2 border-2 border-black dark:border-white bg-transparent text-black dark:text-white uppercase transition-all duration-150">Enterprise Ops</button>
+          <button data-filter="academic" class="filter-btn px-4 py-2 border-2 border-black dark:border-white bg-transparent text-black dark:text-white uppercase transition-all duration-150">Academic Systems</button>
+          <button data-filter="utilities" class="filter-btn px-4 py-2 border-2 border-black dark:border-white bg-transparent text-black dark:text-white uppercase transition-all duration-150">Utilities</button>
+        </div>
+      </div>
+
+      <!-- Main Render Grid -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" id="projects-grid-container">
+        <!-- RENDERED DYNAMICALLY BY MAIN.JS -->
+      </div>
+    </section>
+
+    <!-- CREDENTIALS & SKILLS MATRIX -->
+    <section class="grid grid-cols-1 lg:grid-cols-12 gap-8 border-t border-black dark:border-white pt-16" id="credentials">
+      <!-- Left Column: Certifications & Academics -->
+      <div class="lg:col-span-8 space-y-10">
+        <div>
+          <span class="font-mono text-xs text-zinc-500 uppercase">Track 03 // Validation</span>
+          <h2 class="text-3xl font-black uppercase tracking-tight mb-6">Certifications & Education</h2>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <!-- Certifications Grid Card -->
+          <div class="border-2 border-black dark:border-white p-6 space-y-4">
+            <h3 class="font-mono text-sm font-bold uppercase tracking-wider text-[#FF3B30] dark:text-[#FF453A] border-b pb-2 border-black/15 dark:border-white/15">
+              Certifications Shelf
+            </h3>
+            <div class="space-y-4 font-mono text-xs">
+              <div class="flex items-center justify-between">
+                <span>Google Certified Gemini Faculty</span>
+                <span class="text-zinc-500">2024</span>
+              </div>
+              <div class="flex items-center justify-between">
+                <span>Google Certified Gemini Educator</span>
+                <span class="text-zinc-500">2024</span>
+              </div>
+              <div class="flex items-center justify-between">
+                <span>Ethical Hacking Essentials (EHE)</span>
+                <span class="text-zinc-500">EC-Council</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Academic History Card -->
+          <div class="border-2 border-black dark:border-white p-6 space-y-4">
+            <h3 class="font-mono text-sm font-bold uppercase tracking-wider text-[#FF3B30] dark:text-[#FF453A] border-b pb-2 border-black/15 dark:border-white/15">
+              Academic Background
+            </h3>
+            <div class="space-y-4">
+              <div>
+                <span class="font-mono text-[10px] text-zinc-500">2019 – 2023 // BS INFOTECH</span>
+                <h4 class="text-sm font-bold uppercase tracking-tight mt-1">Pamantasan ng Lungsod ng Pasig</h4>
+                <p class="text-xs text-zinc-600 dark:text-zinc-400">Bachelor of Science in Information Technology</p>
+              </div>
+              <div>
+                <span class="font-mono text-[10px] text-zinc-500">2017 – 2019 // SHS ICT STRAND</span>
+                <h4 class="text-sm font-bold uppercase tracking-tight mt-1">Sta. Lucia Senior High School</h4>
+                <p class="text-xs text-zinc-600 dark:text-zinc-400">Specialization in Computer Systems Servicing</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right Column: Skills Matrix -->
+      <div class="lg:col-span-4 border-2 border-black dark:border-white p-6 bg-zinc-50 dark:bg-[#1C1C1E]">
+        <h3 class="font-mono text-sm font-bold uppercase tracking-wider text-[#FF3B30] dark:text-[#FF453A] border-b pb-3 border-black/25 dark:border-white/25 mb-6">
+          Core Skills Matrix
+        </h3>
+        <div class="space-y-6">
+          <div>
+            <span class="block font-mono text-[10px] uppercase text-zinc-500 mb-2">[ TECHNICAL ]</span>
+            <div class="flex flex-wrap gap-1.5">
+              <span class="px-2 py-1 bg-white dark:bg-zinc-800 border border-black/20 dark:border-white/20 text-xs font-mono">HTML5 / CSS3</span>
+              <span class="px-2 py-1 bg-white dark:bg-zinc-800 border border-black/20 dark:border-white/20 text-xs font-mono">JavaScript (ES6+)</span>
+              <span class="px-2 py-1 bg-white dark:bg-zinc-800 border border-black/20 dark:border-white/20 text-xs font-mono">PHP Backend</span>
+              <span class="px-2 py-1 bg-white dark:bg-zinc-800 border border-black/20 dark:border-white/20 text-xs font-mono">Tailwind CSS</span>
+              <span class="px-2 py-1 bg-white dark:bg-zinc-800 border border-black/20 dark:border-white/20 text-xs font-mono">Firebase DB</span>
+              <span class="px-2 py-1 bg-white dark:bg-zinc-800 border border-black/20 dark:border-white/20 text-xs font-mono">SQL / MySQL</span>
+              <span class="px-2 py-1 bg-white dark:bg-zinc-800 border border-black/20 dark:border-white/20 text-xs font-mono">AI Automations</span>
+              <span class="px-2 py-1 bg-white dark:bg-zinc-800 border border-black/20 dark:border-white/20 text-xs font-mono">Hardware Diagnostics</span>
+            </div>
+          </div>
+
+          <div>
+            <span class="block font-mono text-[10px] uppercase text-zinc-500 mb-2">[ CREATIVE / MEDIA ]</span>
+            <div class="flex flex-wrap gap-1.5">
+              <span class="px-2 py-1 bg-white dark:bg-zinc-800 border border-black/20 dark:border-white/20 text-xs font-mono">Photoshop CC</span>
+              <span class="px-2 py-1 bg-white dark:bg-zinc-800 border border-black/20 dark:border-white/20 text-xs font-mono">Filmora UI</span>
+              <span class="px-2 py-1 bg-white dark:bg-zinc-800 border border-black/20 dark:border-white/20 text-xs font-mono">Graphic Design</span>
+              <span class="px-2 py-1 bg-white dark:bg-zinc-800 border border-black/20 dark:border-white/20 text-xs font-mono">Video Editing</span>
+            </div>
+          </div>
+
+          <div>
+            <span class="block font-mono text-[10px] uppercase text-zinc-500 mb-2">[ GENERAL SOFTWARE ]</span>
+            <div class="flex flex-wrap gap-1.5">
+              <span class="px-2 py-1 bg-white dark:bg-zinc-800 border border-black/20 dark:border-white/20 text-xs font-mono">MS Word</span>
+              <span class="px-2 py-1 bg-white dark:bg-zinc-800 border border-black/20 dark:border-white/20 text-xs font-mono">MS Excel</span>
+              <span class="px-2 py-1 bg-white dark:bg-zinc-800 border border-black/20 dark:border-white/20 text-xs font-mono">MS PowerPoint</span>
+              <span class="px-2 py-1 bg-white dark:bg-zinc-800 border border-black/20 dark:border-white/20 text-xs font-mono">Git & Version Control</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT SECTION -->
+    <section class="border-t border-black dark:border-white pt-16 grid grid-cols-1 lg:grid-cols-12 gap-12" id="contact">
+      <!-- Contact Info & Live Clock -->
+      <div class="lg:col-span-5 space-y-6">
+        <div>
+          <span class="font-mono text-xs text-zinc-500 uppercase">04 // Contact</span>
+          <h2 class="text-3xl font-black uppercase tracking-tight">Get In Touch</h2>
+          <p class="mt-4 text-zinc-650 dark:text-zinc-350 text-sm leading-relaxed">
+            Interested in building internal operations portals, integrating customized APIs, or collaborating on instructional curriculum development? Send a message directly.
+          </p>
+        </div>
+
+        <div class="border-y-2 border-black dark:border-white py-6 space-y-4 font-mono text-xs">
+          <div class="flex items-center justify-between">
+            <span class="text-zinc-500 uppercase">Location:</span>
+            <span>Marikina City, PH</span>
+          </div>
+          <div class="flex items-center justify-between">
+            <span class="text-zinc-500 uppercase">Email:</span>
+            <a href="mailto:arjayagbayani38@gmail.com" class="hover:underline">arjayagbayani38@gmail.com</a>
+          </div>
+          <div class="flex items-center justify-between">
+            <span class="text-zinc-500 uppercase">Contact No:</span>
+            <span>+63 976 084 3180</span>
+          </div>
+          <div class="flex items-center justify-between">
+            <span class="text-zinc-500 uppercase">Live Clock:</span>
+            <span id="local-time-clock" class="font-bold text-[#FF3B30] dark:text-[#FF453A]">--:--:--</span>
+          </div>
+        </div>
+
+        <!-- Social Anchors -->
+        <div class="flex flex-wrap gap-4 font-mono text-xs">
+          <a href="https://github.com/sirjeii" target="_blank" class="hover:underline">github.com/sirjeii ↗</a>
+          <a href="https://ar-jayportfolio.netlify.app" target="_blank" class="hover:underline">netlify.app ↗</a>
+        </div>
+      </div>
+
+      <!-- Contact Form -->
+      <div class="lg:col-span-7">
+        <form id="contact-form" class="space-y-6 border-2 border-black dark:border-white p-6 bg-zinc-50 dark:bg-[#1C1C1E]">
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+            <div>
+              <label for="contact-name" class="block font-mono text-xs uppercase text-zinc-500 mb-2">Name</label>
+              <input type="text" id="contact-name" name="name" required class="w-full px-4 py-3 bg-[#FAF9F5] dark:bg-[#121212] border-2 border-black dark:border-white text-sm font-semibold focus:outline-none focus:ring-1 focus:ring-[#FF3B30] dark:focus:ring-white">
+            </div>
+            <div>
+              <label for="contact-email" class="block font-mono text-xs uppercase text-zinc-500 mb-2">Email Address</label>
+              <input type="email" id="contact-email" name="email" required class="w-full px-4 py-3 bg-[#FAF9F5] dark:bg-[#121212] border-2 border-black dark:border-white text-sm font-semibold focus:outline-none focus:ring-1 focus:ring-[#FF3B30] dark:focus:ring-white">
+            </div>
+          </div>
+          <div>
+            <label for="contact-message" class="block font-mono text-xs uppercase text-zinc-500 mb-2">Message</label>
+            <textarea id="contact-message" name="message" rows="5" required class="w-full px-4 py-3 bg-[#FAF9F5] dark:bg-[#121212] border-2 border-black dark:border-white text-sm font-semibold focus:outline-none focus:ring-1 focus:ring-[#FF3B30] dark:focus:ring-white"></textarea>
+          </div>
+          
+          <div id="form-feedback">
+            <!-- Simulated response injected here -->
+          </div>
+
+          <button type="submit" id="contact-submit" class="w-full px-6 py-4 bg-black text-white dark:bg-white dark:text-black font-mono font-bold uppercase transition-transform hover:-translate-x-1 hover:-translate-y-1 shadow-[4px_4px_0px_#FF3B30] dark:shadow-[4px_4px_0px_#FF453A] active:translate-x-0 active:translate-y-0">
+            Dispatch Message
+          </button>
+        </form>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- MODERN MINIMALIST FOOTER -->
+  <footer class="w-full border-t-2 border-black dark:border-white mt-24 bg-black text-white">
+    <div class="max-w-7xl mx-auto px-6 md:px-12 py-12 flex flex-col sm:flex-row items-center justify-between gap-4">
+      <div class="space-y-2 text-center sm:text-left">
+        <span class="text-xl font-black tracking-tighter">A. AGBAYANI // 2026</span>
+        <p class="text-[10px] uppercase text-zinc-400 font-mono">
+          &copy; 2026 Ar-Jay C. Agbayani. Built with Swiss minimalism & Tailwind CSS CDN.
+        </p>
+      </div>
+      <div class="text-xs font-mono text-zinc-400 text-center sm:text-right uppercase">
+        [ Marikina City, Philippines ]
+      </div>
+    </div>
+  </footer>
+
+  <!-- Script Modules -->
+  <script type="module" src="src/main.js"></script>
 </body>
 </html>

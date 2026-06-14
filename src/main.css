@@ -1,0 +1,64 @@
+/* Custom styles for Swiss-Retro portfolio */
+
+/* Custom scrollbar matching Swiss design */
+::-webkit-scrollbar {
+  width: 12px;
+  height: 12px;
+}
+::-webkit-scrollbar-track {
+  background: #FAF9F5;
+  border-left: 2px solid #121212;
+}
+::-webkit-scrollbar-thumb {
+  background-color: #121212;
+  border: 2px solid #FAF9F5;
+}
+::-webkit-scrollbar-thumb:hover {
+  background-color: #FF3B30;
+}
+
+/* Swiss Grid background utility */
+.bg-grid-pattern {
+  background-image: radial-gradient(#121212 1px, transparent 1px);
+  background-size: 24px 24px;
+}
+
+/* Custom transitions */
+.transition-all-custom {
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Scanline animation for subtle retro touch */
+@keyframes scanline {
+  0% {
+    transform: translateY(-100%);
+  }
+  100% {
+    transform: translateY(100%);
+  }
+}
+
+.scanlines::after {
+  content: " ";
+  display: block;
+  position: absolute;
+  top: 0; left: 0; bottom: 0; right: 0;
+  background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.05) 50%);
+  background-size: 100% 4px;
+  z-index: 20;
+  pointer-events: none;
+}
+
+/* Custom cursor and hover effects */
+.hover-lift {
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.hover-lift:hover {
+  transform: translate(-4px, -4px);
+  box-shadow: 8px 8px 0px #121212;
+}
+
+.hover-lift-red:hover {
+  transform: translate(-4px, -4px);
+  box-shadow: 8px 8px 0px #FF3B30;
+}
